@@ -66,7 +66,7 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type ProjectDocumentDataSlicesSlice = never;
+type ProjectDocumentDataSlicesSlice = ProjectHeroSlice;
 
 /**
  * Content for project documents
@@ -146,6 +146,61 @@ export type ProjectDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomeDocument | ProjectDocument;
 
 /**
+ * Primary content in *ProjectHero → Primary*
+ */
+export interface ProjectHeroSliceDefaultPrimary {
+  /**
+   * heading field in *ProjectHero → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * hero_image field in *ProjectHero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_hero.primary.hero_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hero_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ProjectHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProjectHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProjectHero*
+ */
+type ProjectHeroSliceVariation = ProjectHeroSliceDefault;
+
+/**
+ * ProjectHero Shared Slice
+ *
+ * - **API ID**: `project_hero`
+ * - **Description**: ProjectHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectHeroSlice = prismic.SharedSlice<
+  "project_hero",
+  ProjectHeroSliceVariation
+>;
+
+/**
  * Primary content in *Welcome → Primary*
  */
 export interface WelcomeSliceDefaultPrimary {
@@ -217,6 +272,10 @@ declare module "@prismicio/client" {
       ProjectDocumentData,
       ProjectDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ProjectHeroSlice,
+      ProjectHeroSliceDefaultPrimary,
+      ProjectHeroSliceVariation,
+      ProjectHeroSliceDefault,
       WelcomeSlice,
       WelcomeSliceDefaultPrimary,
       WelcomeSliceVariation,

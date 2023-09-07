@@ -11,8 +11,8 @@
   <p>{slice.primary.text[0].text}</p>
 
   <div class="welcome-buttons">
-    <a class="action-btn" href="#contact">Reach out!</a>
-    <a class="second-btn" href="#projects">Explore projects</a>
+    <a class="action-btn" href="#">Reach out!</a>
+    <a class="second-btn" href="/project">Explore projects</a>
   </div>
 </section>
 

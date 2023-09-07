@@ -1,0 +1,36 @@
+{
+  "id": "project_hero",
+  "type": "SharedSlice",
+  "name": "ProjectHero",
+  "description": "ProjectHero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading1"
+          }
+        },
+        "hero_image": {
+          "type": "Image",
+          "config": {
+            "label": "hero_image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
