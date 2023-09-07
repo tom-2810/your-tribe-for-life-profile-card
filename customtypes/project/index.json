@@ -29,6 +29,9 @@
             },
             "text_block": {
               "type": "SharedSlice"
+            },
+            "test": {
+              "type": "SharedSlice"
             }
           }
         }
