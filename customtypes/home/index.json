@@ -17,14 +17,7 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "gekke_dingen": {
-              "type": "SharedSlice"
-            },
-            "text_block": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     },

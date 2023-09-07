@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = GekkeDingenSlice | TextBlockSlice;
+type HomeDocumentDataSlicesSlice = never;
 
 /**
  * Content for home documents
@@ -66,10 +66,7 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type ProjectDocumentDataSlicesSlice =
-  | GekkeDingenSlice
-  | TextBlockSlice
-  | TestSlice;
+type ProjectDocumentDataSlicesSlice = never;
 
 /**
  * Content for project documents
@@ -148,148 +145,6 @@ export type ProjectDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = HomeDocument | ProjectDocument;
 
-/**
- * Primary content in *GekkeDingen → Primary*
- */
-export interface GekkeDingenSliceDefaultPrimary {
-  /**
-   * text field in *GekkeDingen → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: gekke_dingen.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-
-  /**
-   * image field in *GekkeDingen → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: gekke_dingen.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
- * Default variation for GekkeDingen Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type GekkeDingenSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<GekkeDingenSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *GekkeDingen*
- */
-type GekkeDingenSliceVariation = GekkeDingenSliceDefault;
-
-/**
- * GekkeDingen Shared Slice
- *
- * - **API ID**: `gekke_dingen`
- * - **Description**: GekkeDingen
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type GekkeDingenSlice = prismic.SharedSlice<
-  "gekke_dingen",
-  GekkeDingenSliceVariation
->;
-
-/**
- * Primary content in *Test → Primary*
- */
-export interface TestSliceDefaultPrimary {
-  /**
-   * image field in *Test → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: test.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
- * Default variation for Test Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TestSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<TestSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Test*
- */
-type TestSliceVariation = TestSliceDefault;
-
-/**
- * Test Shared Slice
- *
- * - **API ID**: `test`
- * - **Description**: Test
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TestSlice = prismic.SharedSlice<"test", TestSliceVariation>;
-
-/**
- * Primary content in *TextBlock → Primary*
- */
-export interface TextBlockSliceDefaultPrimary {
-  /**
-   * text field in *TextBlock → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_block.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-}
-
-/**
- * Default variation for TextBlock Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextBlockSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<TextBlockSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *TextBlock*
- */
-type TextBlockSliceVariation = TextBlockSliceDefault;
-
-/**
- * TextBlock Shared Slice
- *
- * - **API ID**: `text_block`
- * - **Description**: TextBlock
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextBlockSlice = prismic.SharedSlice<
-  "text_block",
-  TextBlockSliceVariation
->;
-
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -307,18 +162,6 @@ declare module "@prismicio/client" {
       ProjectDocumentData,
       ProjectDocumentDataSlicesSlice,
       AllDocumentTypes,
-      GekkeDingenSlice,
-      GekkeDingenSliceDefaultPrimary,
-      GekkeDingenSliceVariation,
-      GekkeDingenSliceDefault,
-      TestSlice,
-      TestSliceDefaultPrimary,
-      TestSliceVariation,
-      TestSliceDefault,
-      TextBlockSlice,
-      TextBlockSliceDefaultPrimary,
-      TextBlockSliceVariation,
-      TextBlockSliceDefault,
     };
   }
 }

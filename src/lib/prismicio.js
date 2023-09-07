@@ -22,7 +22,6 @@ const routes = [
   },
   {
     type: "project",
-    uid: "monwest",
     path: "/:uid"
   }
 ];
