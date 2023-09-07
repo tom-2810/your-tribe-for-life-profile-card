@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = never;
+type HomeDocumentDataSlicesSlice = WelcomeSlice;
 
 /**
  * Content for home documents
@@ -145,6 +145,61 @@ export type ProjectDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = HomeDocument | ProjectDocument;
 
+/**
+ * Primary content in *Welcome → Primary*
+ */
+export interface WelcomeSliceDefaultPrimary {
+  /**
+   * heading field in *Welcome → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: welcome.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * text field in *Welcome → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: welcome.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Welcome Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WelcomeSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<WelcomeSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Welcome*
+ */
+type WelcomeSliceVariation = WelcomeSliceDefault;
+
+/**
+ * Welcome Shared Slice
+ *
+ * - **API ID**: `welcome`
+ * - **Description**: Welcome
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WelcomeSlice = prismic.SharedSlice<
+  "welcome",
+  WelcomeSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -162,6 +217,10 @@ declare module "@prismicio/client" {
       ProjectDocumentData,
       ProjectDocumentDataSlicesSlice,
       AllDocumentTypes,
+      WelcomeSlice,
+      WelcomeSliceDefaultPrimary,
+      WelcomeSliceVariation,
+      WelcomeSliceDefault,
     };
   }
 }
