@@ -20,6 +20,9 @@
           "choices": {
             "welcome": {
               "type": "SharedSlice"
+            },
+            "project_list": {
+              "type": "SharedSlice"
             }
           }
         }

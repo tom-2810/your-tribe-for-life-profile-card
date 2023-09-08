@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = WelcomeSlice;
+type HomeDocumentDataSlicesSlice = WelcomeSlice | ProjectListSlice;
 
 /**
  * Content for home documents
@@ -73,7 +73,7 @@ type ProjectDocumentDataSlicesSlice = ProjectHeroSlice;
  */
 interface ProjectDocumentData {
   /**
-   * Title field in *project*
+   * title field in *project*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -84,6 +84,17 @@ interface ProjectDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * hero_image field in *project*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.hero_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hero_image: prismic.ImageField<never>;
+
+  /**
    * Slice Zone field in *project*
    *
    * - **Field Type**: Slice Zone
@@ -92,39 +103,7 @@ interface ProjectDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<ProjectDocumentDataSlicesSlice>
-  /**
-   * Meta Description field in *project*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: project.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *project*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-
-  /**
-   * Meta Title field in *project*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: project.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
+  slices: prismic.SliceZone<ProjectDocumentDataSlicesSlice>;
 }
 
 /**
@@ -198,6 +177,51 @@ type ProjectHeroSliceVariation = ProjectHeroSliceDefault;
 export type ProjectHeroSlice = prismic.SharedSlice<
   "project_hero",
   ProjectHeroSliceVariation
+>;
+
+/**
+ * Primary content in *ProjectList → Items*
+ */
+export interface ProjectListSliceDefaultItem {
+  /**
+   * project field in *ProjectList → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_list.items[].project
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project: prismic.ContentRelationshipField<"project">;
+}
+
+/**
+ * Default variation for ProjectList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectListSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<ProjectListSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ProjectList*
+ */
+type ProjectListSliceVariation = ProjectListSliceDefault;
+
+/**
+ * ProjectList Shared Slice
+ *
+ * - **API ID**: `project_list`
+ * - **Description**: ProjectList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectListSlice = prismic.SharedSlice<
+  "project_list",
+  ProjectListSliceVariation
 >;
 
 /**
@@ -276,6 +300,10 @@ declare module "@prismicio/client" {
       ProjectHeroSliceDefaultPrimary,
       ProjectHeroSliceVariation,
       ProjectHeroSliceDefault,
+      ProjectListSlice,
+      ProjectListSliceDefaultItem,
+      ProjectListSliceVariation,
+      ProjectListSliceDefault,
       WelcomeSlice,
       WelcomeSliceDefaultPrimary,
       WelcomeSliceVariation,
