@@ -1,107 +1,116 @@
 <script>
-    export let item;
+  export let item;
+  export let intro = false;
 </script>
 
 <section class="project">
-	<a href="/project{item.project.url}">
-		<h3>{item.project.data.title}</h3>
-		<img src={item.project.data.hero_image.url} alt="" />
+  <a href=/project{item.project.url}>
+    <div class="item" class:orange-color={intro}>
+      <div class="card" class:shift={intro}>
+        <div class="heading">
+          <h3>{item.project.data.title}</h3>
+		  {#if item.project.data.status}
+		  <div class="status">{item.project.data.status}</div>
+		  {/if}
+        </div>
+        <div class="content">
+          <img src={item.project.data.hero_image.url} alt="afbeelding" />
+        </div>
+      </div>
+    </div>
 
-		<p class="case-study">
-			Read case study
-			<svg>
-				<defs>
-					<marker id="m" markerWidth="4" markerHeight="5" refX="0" refY="1" viewBox="0 0 1 2">
-						<polygon points="0,0 1,1 0,2" fill="#ff9900" />
-					</marker>
-				</defs>
-				<line
-					x1="0"
-					y1="50%"
-					x2="100%"
-					y2="50%"
-					stroke-width="1.5"
-					marker-end="url(#m)"
-					stroke="#ff9900"
-				/>
-			</svg>
-		</p>
-	</a>
+    <div class:casestudy={intro}>link</div>
+  </a>
 </section>
 
 <style>
-	svg {
-		width: 20px;
-		height: 20px;
-		overflow: visible;
-	}
+  .project {
+    aspect-ratio: 1/1;
+    cursor: pointer;
+  }
+  .project * {
+	transition: .3s;
+  }
+  .project:hover .card {
+    transform: translateX(-6px) translateY(-6px);
+  }
 
-	.project {
-		position: relative;
-		transition: .7s;
-	}
+  .item,
+  .card {
+    border-radius: var(--radius-m);
+  }
+  .item {
+    background-color: var(--c-global-text);
+    height: 100%;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 2px solid var(--c-global-text);
+    height: 100%;
+  }
+  .casestudy {
+    display: none;
+  }
+  .shift {
+    transform: translateX(-6px) translateY(-6px);
+  }
+  .orange-color {
+    background-color: var(--c-contrast);
+  }
+  .heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+    padding: 14px 14px 8px 14px;
+    border-bottom: 1px solid var(--c-line);
+  }
+  .status {
+	border: 1px solid var(--c-contrast);
+	padding: var(--size-s);
+	color: var(--c-contrast);
+	border-radius: var(--radius-s);
+  }
+  .content {
+    flex: 1;
+    margin: 14px;
+    border: 1px solid grey;
+    border-radius: var(--radius-s);
+    overflow: hidden;
+  }
+  .content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .project:nth-child(1n) {
+    grid-column: span 4;
+  }
 
-	.project:nth-child(1n) {
-		grid-column: span 5;
-	}
-	
-	.project:nth-child(2n) {
-		grid-column: span 4;
-		transform: translateY(13rem);
-	}
+  .project:nth-child(2n) {
+    grid-column: span 4;
+    transform: translateX(1rem) translateY(7rem);
+  }
 
-	.project:nth-child(3n) {
-		grid-column: span 7;
-		transform: translateX(6rem) translateY(1rem);
-	}
+  .project:nth-child(3n) {
+    grid-column: span 5;
+    transform: translateX(3rem);
+  }
 
-	.project:nth-child(4n) {
-		grid-column: span 4;
-		transform: translateY(8rem);
-	}
+  .project:nth-child(4n) {
+    grid-column: span 4;
+    transform: translateX(-1rem) translateY(3rem);
+  }
 
-	.project:nth-child(5n) {
-		grid-column: span 5;
-		transform: translateY(-4rem);
-	}
+  .project:nth-child(5n) {
+    grid-column: span 4;
+    transform: translateY(-6rem);
+  }
 
-	.project:hover svg {
-		width: 3rem;
-	}
-
-	.project * {
-		transition: 0.5s;
-	}
-
-	.project .case-study {
-		display: flex;
-		gap: var(--size-s);
-		font-size: 1.1rem;
-		font-weight: lighter;
-		color: #ff9900;
-	}
-
-	.project:hover {
-		scale: 1.08;
-	}
-
-	.project:hover :is(img, .summary) {
-		border-radius: var(--radius-s);
-		color: var(--c-global-text);
-	}
-
-	.project img {
-		width: 100%;
-		aspect-ratio: 2/1.5;
-		object-fit: cover;
-		/* margin: .2rem 0; */
-
-		border-radius: var(--radius-xl);
-	}
-
-	@media (max-width: 580px) {
-		.project {
-			transform: translateX(0) translateY(0) !important;
-		}
-	}
+  @media (max-width: 580px) {
+    .project {
+      transform: translateX(0) translateY(0) !important;
+    }
+  }
 </style>

@@ -13,7 +13,7 @@
   data-slice-type={slice.slice_type}
   data-slice-variation={slice.variation}
 >
-  <h2><a href="#projects">Projects</a></h2>
+  <h2 id="projects"><a href="#projects">Projects</a></h2>
 
   <div class="projects">
     {#each slice.items.slice(0, currentAmountOfProjects) as item}
@@ -42,7 +42,7 @@
 <style>
   .projects {
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     column-gap: var(--size-xl);
     row-gap: var(--size-xxl);
 

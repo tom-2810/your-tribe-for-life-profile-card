@@ -27,6 +27,14 @@
           "thumbnails": []
         }
       },
+      "status": {
+        "type": "Select",
+        "config": {
+          "label": "status",
+          "placeholder": "",
+          "options": ["New", "Featured"]
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

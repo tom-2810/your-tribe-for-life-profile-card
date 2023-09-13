@@ -95,6 +95,17 @@ interface ProjectDocumentData {
   hero_image: prismic.ImageField<never>;
 
   /**
+   * status field in *project*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.status
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  status: prismic.SelectField<"New" | "Featured">;
+
+  /**
    * Slice Zone field in *project*
    *
    * - **Field Type**: Slice Zone
@@ -247,6 +258,16 @@ export interface WelcomeSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   text: prismic.RichTextField;
+
+  /**
+   * project field in *Welcome → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: welcome.primary.project
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project: prismic.ContentRelationshipField;
 }
 
 /**
