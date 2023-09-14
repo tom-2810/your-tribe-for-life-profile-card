@@ -126,7 +126,7 @@
       "project paragraph";
     width: 95%;
     max-width: 71rem;
-    height: 43rem;
+    height: max-content;
     row-gap: var(--size-l);
     margin: 7rem auto;
   }
@@ -239,14 +239,34 @@
     section {
       display: flex;
       flex-direction: column;
-      margin-bottom: 33rem;
+    }
+    .availability {
+      margin-bottom: var(--size-l);
     }
     .project {
       max-width: none;
       width: 100%;
     }
+    .bold-text {
+      width: 78%;
+      font-size: 3rem;
+      margin-bottom: 2.1rem;
+    }
+    .bold-text span::after {
+      background-size: 7rem 7rem;
+      height: 7rem;
+      width: 7rem;
+      transform: translateY(-1.2rem);
+    }
     .paragraph {
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
+    }
+  }
+  @media (max-width: 500px) {
+    .bold-text {
+      width: 100%;
+      max-width: 20rem;
+      font-size: 2.3rem;
     }
   }
 </style>
