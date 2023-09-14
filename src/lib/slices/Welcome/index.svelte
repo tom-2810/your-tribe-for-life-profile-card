@@ -214,14 +214,11 @@
   .bold-text span {
     color: var(--c-contrast);
   }
-  .bold-text span::after {
-    background-size: 6rem 6rem;
-    display: inline-block;
+  .bold-text img {
     position: absolute;
-    transform: translateX(.1rem) translateY(-1.4rem);
-    width: 6rem; 
-    height: 6rem;
-    content:"";
+    transform: translateY(-1.5rem);
+    height: 7.3rem;
+    width: 7.3rem;
   }
   .paragraph {
     display: flex;
@@ -249,16 +246,15 @@
     .bold-text {
       width: 78%;
       font-size: 3rem;
-      margin-bottom: 2.1rem;
+      margin-bottom: 1.4rem;
     }
-    .bold-text span::after {
-      background-size: 7rem 7rem;
-      height: 7rem;
-      width: 7rem;
-      transform: translateY(-1.2rem);
-    }
+    .bold-text img {
+    transform: translateX(-.4rem) translateY(-1rem);
+    height: 7rem;
+    width: 7rem;
+  }
     .paragraph {
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
     }
   }
   @media (max-width: 500px) {
@@ -267,5 +263,10 @@
       max-width: 20rem;
       font-size: 2.3rem;
     }
+    .bold-text img {
+    transform: translateX(4.4rem) translateY(-2.9rem);
+    height: 7rem;
+    width: 7rem;
+  }
   }
 </style>
