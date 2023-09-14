@@ -31,6 +31,11 @@
 					"__TYPE__": "DocumentLink",
 					"id": "mock_document_id"
 				}
+			},
+			"availability": {
+				"__TYPE__": "FieldContent",
+				"value": "available",
+				"type": "Select"
 			}
 		},
 		"items": []

@@ -36,6 +36,17 @@
             "label": "project",
             "select": "document"
           }
+        },
+        "availability": {
+          "type": "Select",
+          "config": {
+            "label": "availability",
+            "placeholder": "",
+            "options": [
+              "available",
+              "unavailable"
+            ]
+          }
         }
       },
       "items": {}

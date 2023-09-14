@@ -19,11 +19,37 @@
       </div>
     </div>
 
-    <div class:casestudy={intro}>link</div>
+    <div class="read-more" class:casestudy={intro}>
+      Read case study
+			<svg>
+				<defs>
+					<marker id="m" markerWidth="4" markerHeight="5" refX="0" refY="1" viewBox="0 0 1 2">
+						<polygon points="0,0 1,1 0,2" fill="#ff9900" />
+					</marker>
+				</defs>
+				<line
+					x1="0"
+					y1="50%"
+					x2="100%"
+					y2="50%"
+					stroke-width="1.5"
+					marker-end="url(#m)"
+					stroke="#ff9900"
+				/>
+			</svg>
+    </div>
   </a>
 </section>
 
 <style>
+  svg {
+		width: 20px;
+		height: 20px;
+		overflow: visible;
+	}
+  .project:hover svg {
+		width: 2rem;
+	}
   .project {
     aspect-ratio: 1/1;
     cursor: pointer;
@@ -49,6 +75,13 @@
     background-color: white;
     border: 2px solid var(--c-global-text);
     height: 100%;
+  }
+  .read-more {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--c-contrast);
+    margin-top: .3rem;
   }
   .casestudy {
     display: none;

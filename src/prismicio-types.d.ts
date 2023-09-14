@@ -268,6 +268,16 @@ export interface WelcomeSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   project: prismic.ContentRelationshipField;
+
+  /**
+   * availability field in *Welcome → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: welcome.primary.availability
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  availability: prismic.SelectField<"available" | "unavailable">;
 }
 
 /**
