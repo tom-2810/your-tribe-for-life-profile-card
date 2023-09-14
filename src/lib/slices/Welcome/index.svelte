@@ -21,7 +21,7 @@
       {/if}
        for hire.</p>
   </div>
-  <h2 class="bold-text">Frontend Design & Development <span>Student</span>
+  <h2 class="bold-text">Frontend Design & Development <span>Student</span><img src="../rocket_1f680.png" alt="">
   </h2>
   <div class="paragraph">
     <p>
@@ -215,7 +215,6 @@
     color: var(--c-contrast);
   }
   .bold-text span::after {
-    background-image: url('../rocket_1f680.png');
     background-size: 6rem 6rem;
     display: inline-block;
     position: absolute;
