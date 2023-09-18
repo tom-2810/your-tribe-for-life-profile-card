@@ -13,15 +13,21 @@
 >
   <div class="availability">
     <h1><span>👋</span>{slice.primary.heading[0].text}</h1>
-    <p>I am currently 
+    <p>
+      I am currently
       {#if slice.primary.availability == "available"}
-      <span style="color: #0bb70b;">{slice.primary.availability}</span>
+        <span style="color: #0bb70b;">{slice.primary.availability}</span>
       {:else}
-      <span style="color: #dc1414;">{slice.primary.availability}</span>
+        <span style="color: #dc1414;">{slice.primary.availability}</span>
       {/if}
-       for hire.</p>
+      for hire.
+    </p>
   </div>
-  <h2 class="bold-text">Frontend Design & Development <span>Student</span><img src="../rocket_1f680.png" alt="">
+  <h2 class="bold-text">
+    Frontend Design & Development <span>Student</span><img
+      src="../rocket_1f680.png"
+      alt=""
+    />
   </h2>
   <div class="paragraph">
     <p>
@@ -29,7 +35,8 @@
     </p>
     <div class="welcome-buttons">
       <a class="action-btn" href="">Reach out!</a>
-      <a class="second-btn" href="">see projects
+      <a class="second-btn" href=""
+        >see projects
         <svg>
           <defs>
             <marker
@@ -107,7 +114,8 @@
     height: 20px;
     overflow: visible;
   }
-  .project:hover svg, .second-btn:hover svg {
+  .project:hover svg,
+  .second-btn:hover svg {
     width: 2rem;
   }
   .read-more {
@@ -115,7 +123,7 @@
     align-items: center;
     gap: 0.5rem;
     color: var(--c-contrast);
-    margin-top: .3rem;
+    margin-top: 0.3rem;
   }
   section {
     display: grid;
@@ -208,7 +216,9 @@
     position: relative;
     grid-area: bold-text;
     font-size: 64px;
-    line-height: 102%;
+    font-weight: 400;
+    line-height: 102.3%;
+    letter-spacing: 0.03rem;
     margin-top: auto;
   }
   .bold-text span {
@@ -249,10 +259,10 @@
       margin-bottom: 1.4rem;
     }
     .bold-text img {
-    transform: translateX(-.4rem) translateY(-1rem);
-    height: 7rem;
-    width: 7rem;
-  }
+      transform: translateX(-0.4rem) translateY(-1rem);
+      height: 7rem;
+      width: 7rem;
+    }
     .paragraph {
       margin-bottom: 3rem;
     }
@@ -264,9 +274,9 @@
       font-size: 2.3rem;
     }
     .bold-text img {
-    transform: translateX(4.4rem) translateY(-2.9rem);
-    height: 7rem;
-    width: 7rem;
-  }
+      transform: translateX(4.4rem) translateY(-2.9rem);
+      height: 7rem;
+      width: 7rem;
+    }
   }
 </style>

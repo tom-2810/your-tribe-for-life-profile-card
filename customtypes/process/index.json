@@ -1,0 +1,46 @@
+{
+  "id": "process",
+  "label": "process",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "title",
+          "placeholder": ""
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "text": {
+        "type": "Text",
+        "config": {
+          "label": "text",
+          "placeholder": ""
+        }
+      },
+      "color": {
+        "type": "Color",
+        "config": {
+          "label": "color",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

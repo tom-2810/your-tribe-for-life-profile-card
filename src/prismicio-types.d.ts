@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = WelcomeSlice | ProjectListSlice;
+type HomeDocumentDataSlicesSlice =
+  | WelcomeSlice
+  | ProjectListSlice
+  | ProcessSlice;
 
 /**
  * Content for home documents
@@ -65,6 +68,71 @@ interface HomeDocumentData {
  */
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HomeDocumentData>, "home", Lang>;
+
+/**
+ * Content for process documents
+ */
+interface ProcessDocumentData {
+  /**
+   * title field in *process*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * image field in *process*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * text field in *process*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * color field in *process*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process.color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  color: prismic.ColorField;
+}
+
+/**
+ * process document from Prismic
+ *
+ * - **API ID**: `process`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProcessDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProcessDocumentData>,
+    "process",
+    Lang
+  >;
 
 type ProjectDocumentDataSlicesSlice = ProjectHeroSlice;
 
@@ -133,7 +201,52 @@ export type ProjectDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomeDocument | ProjectDocument;
+export type AllDocumentTypes = HomeDocument | ProcessDocument | ProjectDocument;
+
+/**
+ * Primary content in *ProcessList → Items*
+ */
+export interface ProcessSliceDefaultItem {
+  /**
+   * process field in *ProcessList → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process.items[].process
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  process: prismic.ContentRelationshipField<"process">;
+}
+
+/**
+ * Default variation for ProcessList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProcessSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<ProcessSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ProcessList*
+ */
+type ProcessSliceVariation = ProcessSliceDefault;
+
+/**
+ * ProcessList Shared Slice
+ *
+ * - **API ID**: `process`
+ * - **Description**: Process
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProcessSlice = prismic.SharedSlice<
+  "process",
+  ProcessSliceVariation
+>;
 
 /**
  * Primary content in *ProjectHero → Primary*
@@ -323,10 +436,16 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      ProcessDocument,
+      ProcessDocumentData,
       ProjectDocument,
       ProjectDocumentData,
       ProjectDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ProcessSlice,
+      ProcessSliceDefaultItem,
+      ProcessSliceVariation,
+      ProcessSliceDefault,
       ProjectHeroSlice,
       ProjectHeroSliceDefaultPrimary,
       ProjectHeroSliceVariation,

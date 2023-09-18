@@ -23,6 +23,9 @@
             },
             "project_list": {
               "type": "SharedSlice"
+            },
+            "process": {
+              "type": "SharedSlice"
             }
           }
         }

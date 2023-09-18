@@ -1,0 +1,29 @@
+{
+  "id": "process",
+  "type": "SharedSlice",
+  "name": "ProcessList",
+  "description": "Process",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "process": {
+          "type": "Link",
+          "config": {
+            "label": "process",
+            "select": "document",
+            "customtypes": [
+              "process"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
