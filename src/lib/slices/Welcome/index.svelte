@@ -2,7 +2,6 @@
   /** @type {import("@prismicio/client").Content.WelcomeSlice} */
   export let slice;
 
-  import Project from "$lib/components/Project.svelte";
   let item = slice.primary;
   let intro = true;
 </script>

@@ -1,8 +1,6 @@
 <script>
   import Project from "../../lib/components/Project.svelte";
   export let data;
-
-  console.log(data);
 </script>
 
 <section>
@@ -23,7 +21,7 @@
 
     margin: 0 auto 4rem auto;
     width: 100%;
-    max-width: 53rem;
+    max-width: 61rem;
     padding: 0 5vw;
   }
 
