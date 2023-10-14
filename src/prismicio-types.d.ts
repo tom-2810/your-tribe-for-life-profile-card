@@ -7,7 +7,8 @@ type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 type HomeDocumentDataSlicesSlice =
   | WelcomeSlice
   | ProjectListSlice
-  | ProcessSlice;
+  | ProcessSlice
+  | BlogTopicListSlice;
 
 /**
  * Content for home documents
@@ -201,7 +202,117 @@ export type ProjectDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomeDocument | ProcessDocument | ProjectDocument;
+/**
+ * Content for topic documents
+ */
+interface TopicDocumentData {
+  /**
+   * title field in *topic*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: topic.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * sub_title field in *topic*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: topic.sub_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sub_title: prismic.KeyTextField;
+
+  /**
+   * intro field in *topic*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: topic.intro
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  intro: prismic.KeyTextField;
+
+  /**
+   * emoji field in *topic*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: topic.emoji
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  emoji: prismic.ImageField<never>;
+}
+
+/**
+ * topic document from Prismic
+ *
+ * - **API ID**: `topic`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TopicDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<TopicDocumentData>, "topic", Lang>;
+
+export type AllDocumentTypes =
+  | HomeDocument
+  | ProcessDocument
+  | ProjectDocument
+  | TopicDocument;
+
+/**
+ * Primary content in *BlogTopicList → Items*
+ */
+export interface BlogTopicListSliceDefaultItem {
+  /**
+   * topic field in *BlogTopicList → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_topic_list.items[].topic
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  topic: prismic.ContentRelationshipField;
+}
+
+/**
+ * Default variation for BlogTopicList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogTopicListSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<BlogTopicListSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *BlogTopicList*
+ */
+type BlogTopicListSliceVariation = BlogTopicListSliceDefault;
+
+/**
+ * BlogTopicList Shared Slice
+ *
+ * - **API ID**: `blog_topic_list`
+ * - **Description**: BlogTopicList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogTopicListSlice = prismic.SharedSlice<
+  "blog_topic_list",
+  BlogTopicListSliceVariation
+>;
 
 /**
  * Primary content in *ProcessList → Items*
@@ -441,7 +552,13 @@ declare module "@prismicio/client" {
       ProjectDocument,
       ProjectDocumentData,
       ProjectDocumentDataSlicesSlice,
+      TopicDocument,
+      TopicDocumentData,
       AllDocumentTypes,
+      BlogTopicListSlice,
+      BlogTopicListSliceDefaultItem,
+      BlogTopicListSliceVariation,
+      BlogTopicListSliceDefault,
       ProcessSlice,
       ProcessSliceDefaultItem,
       ProcessSliceVariation,

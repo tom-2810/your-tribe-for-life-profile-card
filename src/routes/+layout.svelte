@@ -1,5 +1,5 @@
 <script>
-  import Navigation from "../lib/components/navigation.svelte";
+  import Navigation from "../lib/components/Navigation.svelte";
   import global from "../global.css";
 </script>
 

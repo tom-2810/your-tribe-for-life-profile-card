@@ -1,0 +1,46 @@
+{
+  "id": "topic",
+  "label": "topic",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "title",
+          "placeholder": ""
+        }
+      },
+      "sub_title": {
+        "type": "Text",
+        "config": {
+          "label": "sub_title",
+          "placeholder": ""
+        }
+      },
+      "intro": {
+        "type": "Text",
+        "config": {
+          "label": "intro",
+          "placeholder": ""
+        }
+      },
+      "emoji": {
+        "type": "Image",
+        "config": {
+          "label": "emoji",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

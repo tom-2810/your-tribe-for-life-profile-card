@@ -26,6 +26,9 @@
             },
             "process": {
               "type": "SharedSlice"
+            },
+            "blog_topic_list": {
+              "type": "SharedSlice"
             }
           }
         }

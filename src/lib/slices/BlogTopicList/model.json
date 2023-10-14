@@ -1,0 +1,26 @@
+{
+  "id": "blog_topic_list",
+  "type": "SharedSlice",
+  "name": "BlogTopicList",
+  "description": "BlogTopicList",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "topic": {
+          "type": "Link",
+          "config": {
+            "label": "topic",
+            "select": "document"
+          }
+        }
+      }
+    }
+  ]
+}
