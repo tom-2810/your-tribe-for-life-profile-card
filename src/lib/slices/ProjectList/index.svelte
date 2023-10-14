@@ -5,6 +5,8 @@
   import Project from "$lib/components/Project.svelte";
 
 	let currentAmountOfProjects = 3;
+
+  console.log(slice.items)
 </script>
 
 <section
@@ -14,25 +16,13 @@
   <h2 id="projects"><a href="#projects">Projects</a></h2>
 
   <div class="projects">
-    {#each slice.items.slice(0, currentAmountOfProjects) as item}
-      <Project {item} />
+    {#each slice.items as project}
+      <Project project={project.project} />
     {/each}
   </div>
 
   <div class="more">
-    {#if currentAmountOfProjects < slice.items.length}
-      <button
-        class="action-btn"
-        on:click={() => (currentAmountOfProjects = currentAmountOfProjects + 3)}
-      >
-        Show more 
-        {#if slice.items.length - currentAmountOfProjects > 3}
-          +{3}
-        {:else}
-          +{slice.items.length - currentAmountOfProjects}
-        {/if}
-      </button>
-    {/if}
+    <a class="action-btn" href="/projects">All projects</a>
   </div>
 </section>
 

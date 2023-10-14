@@ -34,8 +34,8 @@
       {slice.primary.text[0].text}
     </p>
     <div class="welcome-buttons">
-      <a class="action-btn" href="">Reach out!</a>
-      <a class="second-btn" href=""
+      <a class="action-btn" href="/contact">Reach out!</a>
+      <a class="second-btn" href="/projects"
         >see projects
         <svg>
           <defs>
@@ -64,7 +64,7 @@
     </div>
   </div>
 
-  <a class="project" href="/project{item.project.url}">
+  <a class="project" href="/projects{item.project.url}">
     <div class="item" class:orange-color={intro}>
       <div class="card" class:shift={intro}>
         <div class="heading">
@@ -184,7 +184,7 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    border: 2px solid var(--c-global-text);
+    border: 3px solid var(--c-global-text);
     height: 100%;
   }
   .heading {

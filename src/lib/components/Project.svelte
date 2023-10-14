@@ -1,20 +1,20 @@
 <script>
-  export let item;
+  export let project;
   export let intro = false;
 </script>
 
 <section class="project">
-  <a href=/project{item.project.url}>
+  <a href=/projects{project.url}>
     <div class="item" class:orange-color={intro}>
       <div class="card" class:shift={intro}>
         <div class="heading">
-          <h3>{item.project.data.title}</h3>
-		  {#if item.project.data.status}
-		  <div class="status">{item.project.data.status}</div>
+          <h3>{project.data.title}</h3>
+		  {#if project.data.status}
+		  <div class="status">{project.data.status}</div>
 		  {/if}
         </div>
         <div class="content">
-          <img src={item.project.data.hero_image.url} alt="afbeelding" />
+          <img src={project.data.hero_image.url} alt="afbeelding" />
         </div>
       </div>
     </div>
@@ -73,7 +73,7 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    border: 2px solid var(--c-global-text);
+    border: 3px solid var(--c-global-text);
     height: 100%;
   }
   .read-more {
