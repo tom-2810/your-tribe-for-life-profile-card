@@ -281,7 +281,7 @@ export interface BlogTopicListSliceDefaultItem {
    * - **API ID Path**: blog_topic_list.items[].topic
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  topic: prismic.ContentRelationshipField;
+  topic: prismic.ContentRelationshipField<"topic">;
 }
 
 /**

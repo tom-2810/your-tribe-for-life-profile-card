@@ -14,7 +14,7 @@
 		  {/if}
         </div>
         <div class="content">
-          <img src={project.data.hero_image.url} alt="afbeelding" />
+          <img loading="lazy" src={project.data.hero_image.url} alt="afbeelding" />
         </div>
       </div>
     </div>
@@ -118,16 +118,16 @@
     object-fit: cover;
   }
   .project:nth-child(1n) {
-    grid-column: span 4;
+    grid-column: span 3;
   }
 
   .project:nth-child(2n) {
-    grid-column: span 4;
+    grid-column: span 3;
     transform: translateX(1rem) translateY(7rem);
   }
 
   .project:nth-child(3n) {
-    grid-column: span 5;
+    grid-column: span 4;
     transform: translateX(3rem);
   }
 
@@ -137,7 +137,7 @@
   }
 
   .project:nth-child(5n) {
-    grid-column: span 4;
+    grid-column: span 3;
     transform: translateY(-6rem);
   }
 

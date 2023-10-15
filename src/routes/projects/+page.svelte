@@ -13,15 +13,22 @@
 </section>
 
 <style>
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-l);
+    margin: var(--size-xl) 0;
+  }
   .projects {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     column-gap: var(--size-xl);
     row-gap: var(--size-xxl);
 
     margin: 0 auto 4rem auto;
     width: 100%;
-    max-width: 61rem;
+    max-width: 57rem;
     padding: 0 5vw;
   }
 

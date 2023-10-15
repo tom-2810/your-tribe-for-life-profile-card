@@ -22,7 +22,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--size-m) 0;
+    padding: .6rem 0;
     width: 93%;
     max-width: 60rem;
     margin: 0 auto;

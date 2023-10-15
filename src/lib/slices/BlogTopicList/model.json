@@ -17,7 +17,10 @@
           "type": "Link",
           "config": {
             "label": "topic",
-            "select": "document"
+            "select": "document",
+            "customtypes": [
+              "topic"
+            ]
           }
         }
       }
