@@ -11,5 +11,7 @@ export async function load({fetch, request, params}){
 
     const document = await client.getByUID('topic', topic)
 
-    return document.data
+    console.log(document.last_publication_date)
+
+    return document
 }

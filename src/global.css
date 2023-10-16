@@ -7,10 +7,12 @@
 
     scroll-behavior: smooth;
     scroll-margin: 8rem;
+    font-family: 'Arial Rounded MT Bold';
+
 }
 
 :root {
-    --c-global-background: #fffbf1;
+    --c-global-background: #fffaef;
     --c-global-text: #2d2d2d;
     --c-second-text: #575757;
 
@@ -84,16 +86,19 @@ h2 a:hover::after {
 }
 
 h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 
 h4 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
 p {
     font-size: var(--size-m);
     color: var(--c-second-text);
+    font-size: 1.1rem;
+    line-height: 160%;
+    letter-spacing: .5px;
 }
 
 .action-btn, .second-btn {

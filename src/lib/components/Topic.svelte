@@ -23,7 +23,7 @@
     "December",
   ];
 
-  let fullMonth = monthNames[month];
+  let fullMonth = monthNames[month - 1];
 </script>
 
 <section class="topic">
@@ -37,14 +37,11 @@
           <h4>{topic.data.sub_title}</h4>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse nam
-            voluptatum ea. Tempore, quo. Quibusdam, voluptatibus. Eveniet, rem
-            minima. Quam similique officia facilis totam atque minima, odio enim
-            pariatur dicta!
+            {topic.data.intro}
           </p>
           <p class="date">{day} {fullMonth}, {year}</p>
         </div>
-        <img loading="lazy" src={topic.data.emoji.url} alt="" />
+        <img loading="lazy" class="desktop" src={topic.data.emoji.url} alt="" />
       </div>
     </div>
 
@@ -128,6 +125,9 @@
   }
   img {
     margin-left: auto;
+  }
+  img.desktop {
+    width: 17rem;
   }
   img.mobile {
     position: absolute;

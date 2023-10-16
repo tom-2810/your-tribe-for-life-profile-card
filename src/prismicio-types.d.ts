@@ -202,6 +202,8 @@ export type ProjectDocument<Lang extends string = string> =
     Lang
   >;
 
+type TopicDocumentDataSlicesSlice = VideoSlice;
+
 /**
  * Content for topic documents
  */
@@ -249,6 +251,28 @@ interface TopicDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   emoji: prismic.ImageField<never>;
+
+  /**
+   * color field in *topic*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: topic.color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  color: prismic.ColorField;
+
+  /**
+   * Slice Zone field in *topic*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: topic.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<TopicDocumentDataSlicesSlice>;
 }
 
 /**
@@ -460,6 +484,48 @@ export type ProjectListSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Video → Primary*
+ */
+export interface VideoSliceDefaultPrimary {
+  /**
+   * test field in *Video → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.test
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  test: prismic.LinkToMediaField;
+}
+
+/**
+ * Default variation for Video Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<VideoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Video*
+ */
+type VideoSliceVariation = VideoSliceDefault;
+
+/**
+ * Video Shared Slice
+ *
+ * - **API ID**: `video`
+ * - **Description**: Video
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoSlice = prismic.SharedSlice<"video", VideoSliceVariation>;
+
+/**
  * Primary content in *Welcome → Primary*
  */
 export interface WelcomeSliceDefaultPrimary {
@@ -554,6 +620,7 @@ declare module "@prismicio/client" {
       ProjectDocumentDataSlicesSlice,
       TopicDocument,
       TopicDocumentData,
+      TopicDocumentDataSlicesSlice,
       AllDocumentTypes,
       BlogTopicListSlice,
       BlogTopicListSliceDefaultItem,
@@ -571,6 +638,10 @@ declare module "@prismicio/client" {
       ProjectListSliceDefaultItem,
       ProjectListSliceVariation,
       ProjectListSliceDefault,
+      VideoSlice,
+      VideoSliceDefaultPrimary,
+      VideoSliceVariation,
+      VideoSliceDefault,
       WelcomeSlice,
       WelcomeSliceDefaultPrimary,
       WelcomeSliceVariation,
