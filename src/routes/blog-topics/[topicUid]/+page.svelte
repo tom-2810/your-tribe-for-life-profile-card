@@ -62,9 +62,14 @@
 </div>
 
 <style>
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-xxl);
+  }
   .hero {
     width: 100%;
-    padding-top: 21rem;
+    padding-top: 14rem;
   }
   section {
     position: absolute;

@@ -42,7 +42,7 @@
             "label": "endText",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,preformatted,strong,em,hyperlink,list-item,o-list-item,embed"
+            "single": "paragraph,preformatted,strong,em,hyperlink,embed,list-item,o-list-item"
           }
         }
       },

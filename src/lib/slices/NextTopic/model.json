@@ -1,0 +1,26 @@
+{
+  "id": "next_topic",
+  "type": "SharedSlice",
+  "name": "NextTopic",
+  "description": "NextTopic",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "topic": {
+          "type": "Link",
+          "config": {
+            "label": "topic",
+            "select": "document"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
