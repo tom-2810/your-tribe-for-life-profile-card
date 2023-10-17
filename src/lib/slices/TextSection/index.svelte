@@ -83,8 +83,11 @@
     }
   }
   @media (max-width: 750px) {
+    .text-section div {
+      width: 100%;
+    }
     .text-section section {
-      padding: var(--size-m);
+      padding: var(--size-s);
       width: 90%;
     }
     .text-section div .image {
