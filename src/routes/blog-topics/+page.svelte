@@ -23,4 +23,9 @@
     width: 89%;
     max-width: 59rem;
   }
+  .topics {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-xl);
+  }
 </style>
