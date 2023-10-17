@@ -4,6 +4,7 @@ import BlogTopicList from "./BlogTopicList/index.svelte";
 import ProcessList from "./ProcessList/index.svelte";
 import ProjectHero from "./ProjectHero/index.svelte";
 import ProjectList from "./ProjectList/index.svelte";
+import TextSection from "./TextSection/index.svelte";
 import Video from "./Video/index.svelte";
 import Welcome from "./Welcome/index.svelte";
 
@@ -12,6 +13,7 @@ export const components = {
   process: ProcessList,
   project_hero: ProjectHero,
   project_list: ProjectList,
+  text_section: TextSection,
   video: Video,
   welcome: Welcome,
 };

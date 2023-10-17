@@ -55,6 +55,9 @@
           "choices": {
             "video": {
               "type": "SharedSlice"
+            },
+            "text_section": {
+              "type": "SharedSlice"
             }
           }
         }

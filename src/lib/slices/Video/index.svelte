@@ -16,14 +16,14 @@
     justify-content: center;
     width: 93%;
     max-width: 75rem;
-    margin: 0 auto;
-    padding: 0 var(--size-xl);
+    padding: var(--size-xl) var(--size-xl);
+    margin: var(--size-l) auto;
   }
   video {
     width: 100%;
     border: 3px solid var(--c-global-text);
     border-radius: var(--radius-m);
-    margin: var(--size-xl) var(--size-xl) 0 var(--size-xl);
+    /* margin: var(--size-xl) var(--size-xl) 0 var(--size-xl); */
   }
   @media (max-width: 980px) {
     video {
@@ -32,13 +32,14 @@
   }
   @media (max-width: 750px) {
     section {
-      width: 100%;
+      /* width: 100%; */
       max-width: none;
+    padding: var(--size-l);
     }
   }
   @media (max-width: 605px) {
     section {
-      padding: var(--size-l);
+      padding: 0;
     }
   }
 </style>

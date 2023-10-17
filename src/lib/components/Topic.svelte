@@ -131,10 +131,10 @@
   }
   img.mobile {
     position: absolute;
-    right: -1.5rem;
-    top: -2rem;
+    right: -1rem;
+    top: -1.7rem;
     display: none;
-    height: 4rem;
+    height: 3rem;
     margin-left: 0;
     margin-right: auto;
   }

@@ -202,7 +202,7 @@ export type ProjectDocument<Lang extends string = string> =
     Lang
   >;
 
-type TopicDocumentDataSlicesSlice = VideoSlice;
+type TopicDocumentDataSlicesSlice = VideoSlice | TextSectionSlice;
 
 /**
  * Content for topic documents
@@ -484,6 +484,81 @@ export type ProjectListSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TextSection → Primary*
+ */
+export interface TextSectionSliceDefaultPrimary {
+  /**
+   * title field in *TextSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * startText field in *TextSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_section.primary.starttext
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  starttext: prismic.RichTextField;
+
+  /**
+   * image field in *TextSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_section.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * endText field in *TextSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_section.primary.endtext
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  endtext: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TextSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TextSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TextSection*
+ */
+type TextSectionSliceVariation = TextSectionSliceDefault;
+
+/**
+ * TextSection Shared Slice
+ *
+ * - **API ID**: `text_section`
+ * - **Description**: TextSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextSectionSlice = prismic.SharedSlice<
+  "text_section",
+  TextSectionSliceVariation
+>;
+
+/**
  * Primary content in *Video → Primary*
  */
 export interface VideoSliceDefaultPrimary {
@@ -638,6 +713,10 @@ declare module "@prismicio/client" {
       ProjectListSliceDefaultItem,
       ProjectListSliceVariation,
       ProjectListSliceDefault,
+      TextSectionSlice,
+      TextSectionSliceDefaultPrimary,
+      TextSectionSliceVariation,
+      TextSectionSliceDefault,
       VideoSlice,
       VideoSliceDefaultPrimary,
       VideoSliceVariation,

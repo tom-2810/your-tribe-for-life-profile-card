@@ -1,17 +1,14 @@
-import { createClient } from "$lib/prismicio"
+import { createClient } from "$lib/prismicio";
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({fetch, request, params}){
+export async function load({ fetch, request, params }) {
+  let topic = "monwest";
 
-    let topic = 'monwest'
+  if (params.topicUid) topic = params.topicUid;
 
-    if (params.topicUid) topic = params.topicUid
+  const client = createClient({ fetch, request });
 
-    const client = createClient({fetch, request})
+  const document = await client.getByUID("topic", topic);
 
-    const document = await client.getByUID('topic', topic)
-
-    console.log(document.last_publication_date)
-
-    return document
+  return document;
 }

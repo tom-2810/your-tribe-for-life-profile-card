@@ -32,4 +32,9 @@
     gap: var(--size-l);
     list-style: none;
   }
+  @media (max-width: 720px) {
+    ul {
+      display: none;
+    }
+  }
 </style>

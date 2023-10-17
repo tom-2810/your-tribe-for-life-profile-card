@@ -8,11 +8,13 @@
     scroll-behavior: smooth;
     scroll-margin: 8rem;
     font-family: 'Arial Rounded MT Bold';
-
+    font-weight: 50;
+    letter-spacing: .5px;
 }
 
 :root {
-    --c-global-background: #fffaef;
+    --c-global-background: #fffcf6;
+    --c-contrast-background: #FFEDD1;
     --c-global-text: #2d2d2d;
     --c-second-text: #575757;
 
@@ -31,7 +33,7 @@
     --radius-m: 6px;
     --radius-l: 14px;
     --radius-xl: 18px;
-    
+
     --heading-spacer: 30vw;
 }
 
@@ -49,7 +51,10 @@ a {
     cursor: pointer;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: 'Fugaz One', cursive;
     font-weight: 50;
     line-height: 112%;
@@ -91,17 +96,17 @@ h3 {
 
 h4 {
     font-size: 1.4rem;
-  }
+}
 
 p {
     font-size: var(--size-m);
-    color: var(--c-second-text);
-    font-size: 1.1rem;
-    line-height: 160%;
-    letter-spacing: .5px;
+    color: var(--c-global-text);
+    font-size: 1.25rem;
+    line-height: 150%;
 }
 
-.action-btn, .second-btn {
+.action-btn,
+.second-btn {
     all: unset;
     display: flex;
     align-items: center;

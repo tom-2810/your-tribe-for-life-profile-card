@@ -1,6 +1,7 @@
 <script>
   import { SliceZone } from "@prismicio/svelte";
   import { components } from "$lib/slices";
+  import { slide, fade, fly } from "svelte/transition";
 
   export let data;
 
@@ -28,42 +29,47 @@
   let fullMonth = monthNames[month - 1];
 </script>
 
-<div
-  class="hero"
-  style="background: linear-gradient(0deg, #ffffff 14%, {data.data.color} 0%);"
->
-  <section class="card">
-    <img loading="lazy" class="mobile" src={data.data.emoji.url} alt="" />
-    <div class="text">
-      <h1>{data.data.title}</h1>
+<div class="content" in:fade={{ delay: 500, duration: 500 }}>
+  <div
+    class="hero"
+    style="background: linear-gradient(0deg, #fffcf6 16%, {data.data
+      .color} 0%);"
+  >
+    <section class="card" in:slide={{ delay: 500, duration: 500, y: 600 }}>
+      <img
+        loading="eager"
+        in:fade={{ delay: 1000, duration: 800 }}
+        class="mobile"
+        src={data.data.emoji.url}
+        alt=""
+      />
+      <div class="text">
+        <h1>{data.data.title}</h1>
 
-      <h2>{data.data.sub_title}</h2>
+        <h2>{data.data.sub_title}</h2>
 
-      <p>
-        {data.data.intro}
-      </p>
-      <p class="date">{day} {fullMonth}, {year}</p>
-    </div>
-    <img loading="lazy" src={data.data.emoji.url} alt="" />
-  </section>
+        <p>
+          {data.data.intro}
+        </p>
+        <p class="date">{day} {fullMonth}, {year}</p>
+      </div>
+      <img loading="eager" src={data.data.emoji.url} alt="" />
+    </section>
+  </div>
+  <article in:fly={{ delay: 1000, duration: 800, y: 100 }}>
+    <SliceZone slices={data.data.slices} {components} />
+  </article>
 </div>
-<article>
-  <SliceZone slices={data.data.slices} {components} />
-</article>
 
 <style>
-  article {
-    background-color: white;
-  }
   .hero {
     width: 100%;
-    padding-top: 20rem;
+    padding-top: 21rem;
   }
   section {
     position: absolute;
     width: 93%;
     max-width: 75rem;
-    background-color: white;
     border-radius: var(--radius-l) var(--radius-l) 0 0;
   }
   .card {
@@ -71,7 +77,7 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    background-color: white;
+    background-color: var(--c-global-background);
     width: 93%;
     max-width: 75rem;
     padding: var(--size-xl);
@@ -84,22 +90,25 @@
   h1 {
     font-size: 5rem;
     text-wrap: balance;
-    margin-bottom: 7rem;
+    margin-bottom: 5rem;
   }
   p.date {
     margin-top: var(--size-s);
     font-size: 0.8rem;
+    color: var(--c-second-text);
   }
   img {
     margin: 0 0 auto auto;
-    width: 15rem;
+    height: 15rem;
   }
   img.mobile {
-    display: none;
     position: absolute;
-    right: -6.5rem;
+    display: none;
+    margin-left: 0;
+    margin-right: auto;
+    right: -1.5rem;
     top: -2rem;
-    height: 4rem;
+    height: 5rem;
   }
   h2 {
     all: unset;
@@ -115,6 +124,9 @@
     }
     img.mobile {
       display: block;
+      right: -1.5rem;
+      top: -2rem;
+      height: 5rem;
     }
     .text {
       width: 100%;
@@ -132,6 +144,9 @@
     }
     img.mobile {
       display: block;
+      right: -0.8rem;
+      top: -1.3rem;
+      height: 3rem;
     }
     .text {
       width: 100%;
