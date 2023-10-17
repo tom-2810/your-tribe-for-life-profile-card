@@ -71,7 +71,7 @@
   }
   .text-section div .image img {
     position: relative;
-    transform: translateX(-10px) translateY(-10px);
+    transform: translateX(-6px) translateY(-6px);
     border: 4px solid var(--c-global-text);
   }
   .text-section section > * {

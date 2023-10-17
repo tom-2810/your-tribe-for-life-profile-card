@@ -8,7 +8,7 @@
     scroll-behavior: smooth;
     scroll-margin: 8rem;
     font-family: 'Arial Rounded MT Bold';
-    letter-spacing: .5px;
+    letter-spacing: .4px;
 }
 
 :root {
@@ -100,7 +100,7 @@ h4 {
 p {
     font-size: var(--size-m);
     color: var(--c-global-text);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     line-height: 150%;
 }
 
