@@ -2,7 +2,10 @@
   import * as prismic from "@prismicio/client";
   export let topic;
 
-  let date = topic.last_publication_date != undefined ? topic.last_publication_date.split("-") : topic.primary.topic.last_publication_date;
+  let date =
+    topic.last_publication_date != undefined
+      ? topic.last_publication_date.split("-")
+      : topic.primary.topic.last_publication_date;
 
   let year = date[0];
   let month = date[1];

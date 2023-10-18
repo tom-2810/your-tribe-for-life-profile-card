@@ -58,9 +58,6 @@
             },
             "text_section": {
               "type": "SharedSlice"
-            },
-            "next_topic": {
-              "type": "SharedSlice"
             }
           }
         }

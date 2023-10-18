@@ -3,10 +3,6 @@
   export let slice;
 
   import Project from "$lib/components/Project.svelte";
-
-	let currentAmountOfProjects = 3;
-
-  console.log(slice.items)
 </script>
 
 <section

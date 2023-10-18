@@ -2,7 +2,6 @@
 
 import BlogTopicList from "./BlogTopicList/index.svelte";
 import NextProject from "./NextProject/index.svelte";
-import NextTopic from "./NextTopic/index.svelte";
 import ProcessList from "./ProcessList/index.svelte";
 import ProjectHero from "./ProjectHero/index.svelte";
 import ProjectList from "./ProjectList/index.svelte";
@@ -14,7 +13,6 @@ import Welcome from "./Welcome/index.svelte";
 export const components = {
   blog_topic_list: BlogTopicList,
   next_project: NextProject,
-  next_topic: NextTopic,
   process: ProcessList,
   project_hero: ProjectHero,
   project_list: ProjectList,

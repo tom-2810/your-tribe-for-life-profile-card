@@ -206,10 +206,7 @@ export type ProjectDocument<Lang extends string = string> =
     Lang
   >;
 
-type TopicDocumentDataSlicesSlice =
-  | VideoSlice
-  | TextSectionSlice
-  | NextTopicSlice;
+type TopicDocumentDataSlicesSlice = VideoSlice | TextSectionSlice;
 
 /**
  * Content for topic documents
@@ -388,51 +385,6 @@ type NextProjectSliceVariation = NextProjectSliceDefault;
 export type NextProjectSlice = prismic.SharedSlice<
   "next_project",
   NextProjectSliceVariation
->;
-
-/**
- * Primary content in *NextTopic → Primary*
- */
-export interface NextTopicSliceDefaultPrimary {
-  /**
-   * topic field in *NextTopic → Primary*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: next_topic.primary.topic
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  topic: prismic.ContentRelationshipField;
-}
-
-/**
- * Default variation for NextTopic Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type NextTopicSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<NextTopicSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *NextTopic*
- */
-type NextTopicSliceVariation = NextTopicSliceDefault;
-
-/**
- * NextTopic Shared Slice
- *
- * - **API ID**: `next_topic`
- * - **Description**: NextTopic
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type NextTopicSlice = prismic.SharedSlice<
-  "next_topic",
-  NextTopicSliceVariation
 >;
 
 /**
@@ -857,10 +809,6 @@ declare module "@prismicio/client" {
       NextProjectSliceDefaultPrimary,
       NextProjectSliceVariation,
       NextProjectSliceDefault,
-      NextTopicSlice,
-      NextTopicSliceDefaultPrimary,
-      NextTopicSliceVariation,
-      NextTopicSliceDefault,
       ProcessSlice,
       ProcessSliceDefaultItem,
       ProcessSliceVariation,

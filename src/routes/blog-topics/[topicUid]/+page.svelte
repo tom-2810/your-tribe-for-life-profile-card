@@ -2,6 +2,7 @@
   import { SliceZone } from "@prismicio/svelte";
   import { components } from "$lib/slices";
   import { slide, fade, fly } from "svelte/transition";
+  import Topic from "$lib/components/topic.svelte";
 
   export let data;
 
@@ -59,9 +60,27 @@
   <article in:fly={{ delay: 1000, duration: 800, y: 100 }}>
     <SliceZone slices={data.data.slices} {components} />
   </article>
+
+  <div class="next">
+    <span>Next blog topic</span>
+    <Topic topic={data.next_topic} />
+  </div>
 </div>
 
 <style>
+  .next {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-l);
+    margin: 4rem auto;
+    width: 89%;
+    max-width: 59rem;
+  }
+  span {
+    font-size: 1.5rem;
+  }
+
   article {
     display: flex;
     flex-direction: column;
