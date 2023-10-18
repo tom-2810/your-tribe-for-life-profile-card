@@ -42,6 +42,15 @@
           "choices": {
             "project_hero": {
               "type": "SharedSlice"
+            },
+            "quote_block": {
+              "type": "SharedSlice"
+            },
+            "video": {
+              "type": "SharedSlice"
+            },
+            "next_project": {
+              "type": "SharedSlice"
             }
           }
         }

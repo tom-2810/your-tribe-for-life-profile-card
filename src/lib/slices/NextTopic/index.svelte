@@ -13,7 +13,7 @@
   data-slice-type={slice.slice_type}
   data-slice-variation={slice.variation}
 >
-<span>- next blog topic -</span>
+<span>Next blog topic</span>
   <Topic topic={slice.primary.topic}/>
 </section>
 

@@ -1,0 +1,19 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"text": {
+				"__TYPE__": "FieldContent",
+				"value": "goes",
+				"type": "Text"
+			},
+			"auteur": {
+				"__TYPE__": "FieldContent",
+				"value": "got",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

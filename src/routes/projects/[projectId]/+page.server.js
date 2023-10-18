@@ -9,7 +9,7 @@ export async function load({fetch, request, params}){
 
     const client = createClient({fetch, request})
 
-    const document = await client.getByUID('project', project)
+    const document = await client.getByUID('project', project, {'fetchLinks': ['project.title', 'project.hero_image']})
 
     return document.data
 }

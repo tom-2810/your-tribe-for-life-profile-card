@@ -135,7 +135,11 @@ export type ProcessDocument<Lang extends string = string> =
     Lang
   >;
 
-type ProjectDocumentDataSlicesSlice = ProjectHeroSlice;
+type ProjectDocumentDataSlicesSlice =
+  | ProjectHeroSlice
+  | QuoteBlockSlice
+  | VideoSlice
+  | NextProjectSlice;
 
 /**
  * Content for project documents
@@ -342,6 +346,51 @@ export type BlogTopicListSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *NextProject → Primary*
+ */
+export interface NextProjectSliceDefaultPrimary {
+  /**
+   * project field in *NextProject → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_project.primary.project
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project: prismic.ContentRelationshipField;
+}
+
+/**
+ * Default variation for NextProject Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NextProjectSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NextProjectSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *NextProject*
+ */
+type NextProjectSliceVariation = NextProjectSliceDefault;
+
+/**
+ * NextProject Shared Slice
+ *
+ * - **API ID**: `next_project`
+ * - **Description**: NextProject
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NextProjectSlice = prismic.SharedSlice<
+  "next_project",
+  NextProjectSliceVariation
+>;
+
+/**
  * Primary content in *NextTopic → Primary*
  */
 export interface NextTopicSliceDefaultPrimary {
@@ -529,6 +578,61 @@ type ProjectListSliceVariation = ProjectListSliceDefault;
 export type ProjectListSlice = prismic.SharedSlice<
   "project_list",
   ProjectListSliceVariation
+>;
+
+/**
+ * Primary content in *QuoteBlock → Primary*
+ */
+export interface QuoteBlockSliceDefaultPrimary {
+  /**
+   * text field in *QuoteBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote_block.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * auteur field in *QuoteBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote_block.primary.auteur
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  auteur: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for QuoteBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuoteBlockSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<QuoteBlockSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *QuoteBlock*
+ */
+type QuoteBlockSliceVariation = QuoteBlockSliceDefault;
+
+/**
+ * QuoteBlock Shared Slice
+ *
+ * - **API ID**: `quote_block`
+ * - **Description**: QuoteBlock
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuoteBlockSlice = prismic.SharedSlice<
+  "quote_block",
+  QuoteBlockSliceVariation
 >;
 
 /**
@@ -749,6 +853,10 @@ declare module "@prismicio/client" {
       BlogTopicListSliceDefaultItem,
       BlogTopicListSliceVariation,
       BlogTopicListSliceDefault,
+      NextProjectSlice,
+      NextProjectSliceDefaultPrimary,
+      NextProjectSliceVariation,
+      NextProjectSliceDefault,
       NextTopicSlice,
       NextTopicSliceDefaultPrimary,
       NextTopicSliceVariation,
@@ -765,6 +873,10 @@ declare module "@prismicio/client" {
       ProjectListSliceDefaultItem,
       ProjectListSliceVariation,
       ProjectListSliceDefault,
+      QuoteBlockSlice,
+      QuoteBlockSliceDefaultPrimary,
+      QuoteBlockSliceVariation,
+      QuoteBlockSliceDefault,
       TextSectionSlice,
       TextSectionSliceDefaultPrimary,
       TextSectionSliceVariation,
