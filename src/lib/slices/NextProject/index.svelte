@@ -61,8 +61,9 @@
     transition: 0.2s;
     cursor: pointer;
   }
-  .project:hover {
-    transform: translateY(-0.7rem);
+  a:hover .project {
+    transform: translateY(-0.6rem);
+    scale: 1.008;
   }
   @media (max-width: 600px) {
     .project {
