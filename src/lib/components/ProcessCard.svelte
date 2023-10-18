@@ -1,17 +1,15 @@
 <script>
-    export let item;
-
-    console.log(item)
+  export let item;
 </script>
 
 <section>
-  <div class="item" style=background-color:{item.process.data.color}>
+  <div class="item" style="background-color:{item.process.data.color}">
     <div class="card">
-      <div class="heading" style=color:{item.process.data.color}>
+      <div class="heading" style="color:{item.process.data.color}">
         <h3>{item.process.data.title}</h3>
       </div>
       <div class="content">
-        <img src={item.process.data.image.url} alt="">
+        <img src={item.process.data.image.url} alt="" />
         <p>{item.process.data.text}</p>
       </div>
     </div>
@@ -19,14 +17,14 @@
 </section>
 
 <style>
-    section {
-        aspect-ratio: 1/1;
-    }
+  section {
+    aspect-ratio: 1/1;
+  }
 
-    section .card {
+  section .card {
     transform: translateX(-6px) translateY(-6px);
   }
-    .item,
+  .item,
   .card {
     border-radius: var(--radius-m);
   }
@@ -41,9 +39,9 @@
     height: 100%;
   }
   .heading {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 14px 14px 8px 14px;
     border-bottom: 1px solid var(--c-line);
   }

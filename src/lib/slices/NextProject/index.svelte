@@ -1,8 +1,6 @@
 <script>
   /** @type {import("@prismicio/client").Content.NextProjectSlice} */
   export let slice;
-
-  console.log(slice);
 </script>
 
 <section
@@ -27,11 +25,15 @@
   section {
     display: flex;
     flex-direction: column;
-    gap: var(--size-l);
     align-items: center;
-    height: 15rem;
+    height: 19rem;
     margin-top: var(--size-xxl);
     overflow: hidden;
+  }
+  p {
+    font-size: 2.2rem;
+    font-family: 'Fugaz One', cursive;
+    font-weight: 50;
   }
   a:hover {
     text-decoration: underline;
@@ -41,14 +43,14 @@
     flex-direction: column;
     align-items: center;
     gap: var(--size-s);
-    transition: 0.2s;
   }
   span {
     color: var(--c-contrast);
   }
 
   img.arrow {
-    width: 1rem;
+    width: 1.5rem;
+    margin-bottom: 1rem;
   }
   .project {
     width: 60%;
@@ -56,9 +58,10 @@
     border: 3px solid var(--c-global-text);
     border-bottom: none;
     border-radius: var(--radius-l) var(--radius-l) 0 0;
+    transition: 0.2s;
     cursor: pointer;
   }
-  div:has(.project:hover) {
+  .project:hover {
     transform: translateY(-0.7rem);
   }
   @media (max-width: 600px) {

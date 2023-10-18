@@ -1,8 +1,6 @@
 <script>
   /** @type {import("@prismicio/client").Content.QuoteBlockSlice} */
   export let slice;
-
-  console.log(slice);
 </script>
 
 <section

@@ -2,19 +2,14 @@
   /** @type {import("@prismicio/client").Content.NextTopicSlice} */
   import Topic from "$lib/components/Topic.svelte";
   export let slice;
-
-  let last_publication_date = slice.primary.topic.last_publication_date
-
-  console.log(slice.primary.topic)
-  console.log(last_publication_date)
 </script>
 
 <section
   data-slice-type={slice.slice_type}
   data-slice-variation={slice.variation}
 >
-<span>Next blog topic</span>
-  <Topic topic={slice.primary.topic}/>
+  <span>Next blog topic</span>
+  <Topic topic={slice.primary.topic} />
 </section>
 
 <style>
