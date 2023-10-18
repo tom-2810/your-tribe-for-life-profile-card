@@ -16,7 +16,10 @@
           "type": "Link",
           "config": {
             "label": "project",
-            "select": "document"
+            "select": "document",
+            "customtypes": [
+              "project"
+            ]
           }
         }
       },

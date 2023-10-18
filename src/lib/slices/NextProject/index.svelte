@@ -29,7 +29,7 @@
     flex-direction: column;
     gap: var(--size-l);
     align-items: center;
-    height: 12rem;
+    height: 15rem;
     margin-top: var(--size-xxl);
     overflow: hidden;
   }

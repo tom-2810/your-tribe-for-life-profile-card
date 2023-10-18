@@ -357,7 +357,7 @@ export interface NextProjectSliceDefaultPrimary {
    * - **API ID Path**: next_project.primary.project
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  project: prismic.ContentRelationshipField;
+  project: prismic.ContentRelationshipField<"project">;
 }
 
 /**
