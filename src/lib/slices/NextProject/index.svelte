@@ -26,7 +26,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 18rem;
+    height: 19rem;
     margin-top: var(--size-xxl);
     overflow: hidden;
   }
@@ -51,6 +51,7 @@
   img.arrow {
     width: 1.5rem;
     margin-bottom: 1rem;
+    transition: .2s;
   }
   .project {
     width: 60%;
@@ -64,6 +65,10 @@
   a:hover .project {
     transform: translateY(-0.6rem);
     scale: 1.008;
+  }
+  a:hover img.arrow {
+    transform: translateY(.3rem);
+    scale: .85;
   }
   @media (max-width: 600px) {
     .project {
