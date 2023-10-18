@@ -2,7 +2,7 @@
   import { SliceZone } from "@prismicio/svelte";
   import { components } from "$lib/slices";
   import { slide, fade, fly } from "svelte/transition";
-  import Topic from "$lib/components/topic.svelte";
+  import Topic from "$lib/components/Topic.svelte";
 
   export let data;
 
