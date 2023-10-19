@@ -8,9 +8,17 @@ export async function load({ fetch, request, params }) {
 
   const client = createClient({ fetch, request });
 
+  const projects = await client.getAllByType("project");
   const document = await client.getByUID("project", project, {
     fetchLinks: ["project.title", "project.hero_image"],
   });
 
-  return document.data;
+  const getNextProject =
+    projects[projects.findIndex((o) => o.uid === document.uid) + 1] !== undefined
+      ? projects[projects.findIndex((o) => o.uid === document.uid) + 1]
+      : projects[0];
+
+  document.next_project = getNextProject;
+
+  return document;
 }

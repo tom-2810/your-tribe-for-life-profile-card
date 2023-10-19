@@ -17,11 +17,11 @@ export async function load({ fetch, request, params }) {
       "topic.emoji",
     ],
   });
-  const getNextTopicUID =
+  const getNextTopic =
     topics[topics.findIndex((o) => o.uid === document.uid) + 1] !== undefined
       ? topics[topics.findIndex((o) => o.uid === document.uid) + 1]
       : topics[0];
 
-  document.next_topic = getNextTopicUID;
+  document.next_topic = getNextTopic;
   return document;
 }

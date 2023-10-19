@@ -138,8 +138,7 @@ export type ProcessDocument<Lang extends string = string> =
 type ProjectDocumentDataSlicesSlice =
   | ProjectHeroSlice
   | QuoteBlockSlice
-  | VideoSlice
-  | NextProjectSlice;
+  | VideoSlice;
 
 /**
  * Content for project documents
@@ -340,51 +339,6 @@ type BlogTopicListSliceVariation = BlogTopicListSliceDefault;
 export type BlogTopicListSlice = prismic.SharedSlice<
   "blog_topic_list",
   BlogTopicListSliceVariation
->;
-
-/**
- * Primary content in *NextProject → Primary*
- */
-export interface NextProjectSliceDefaultPrimary {
-  /**
-   * project field in *NextProject → Primary*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: next_project.primary.project
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  project: prismic.ContentRelationshipField<"project">;
-}
-
-/**
- * Default variation for NextProject Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type NextProjectSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<NextProjectSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *NextProject*
- */
-type NextProjectSliceVariation = NextProjectSliceDefault;
-
-/**
- * NextProject Shared Slice
- *
- * - **API ID**: `next_project`
- * - **Description**: NextProject
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type NextProjectSlice = prismic.SharedSlice<
-  "next_project",
-  NextProjectSliceVariation
 >;
 
 /**
@@ -805,10 +759,6 @@ declare module "@prismicio/client" {
       BlogTopicListSliceDefaultItem,
       BlogTopicListSliceVariation,
       BlogTopicListSliceDefault,
-      NextProjectSlice,
-      NextProjectSliceDefaultPrimary,
-      NextProjectSliceVariation,
-      NextProjectSliceDefault,
       ProcessSlice,
       ProcessSliceDefaultItem,
       ProcessSliceVariation,

@@ -48,9 +48,6 @@
             },
             "video": {
               "type": "SharedSlice"
-            },
-            "next_project": {
-              "type": "SharedSlice"
             }
           }
         }
