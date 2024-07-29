@@ -20,16 +20,44 @@
 
 <h1>Contact</h1>
 
-<form name="netlify-form-example" method="POST" netlify-honeypot="bot-field" data-netlify="true">
-    <input type="hidden" name="form-name" value="netlify-form-example" />
-    <label for="name">Name</label>
-    <input name="name" id="name" required placeholder="Name" type="text" />
-    <label for="email">Email</label>
-    <input name="email" id="email" required placeholder="Email" type="email" />
-    <label for="message">Message</label>
-    <input name="message" id="message" required placeholder="Message" type="text" />
+<form
+    name="contact"
+    method="POST"
+    netlify-honeypot="bot-field"
+    data-netlify="true"
+>
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="subject" value="Contact {name} <{email}>" />
+    <label
+        >Your Name: <input
+            bind:value={name}
+            type="text"
+            name="name"
+            placeholder="Jan Janssen"
+        /></label
+    >
+    <label
+        >Your Email: <input
+            bind:value={email}
+            type="email"
+            name="email"
+            placeholder="jan.janssen@mail.nl"
+        /></label
+    >
+    <label
+        >Message: <textarea
+            name="message"
+            placeholder="Hey Tom! 
+
+Kan je me helpen met het 
+maken van een website voor... "
+        /></label
+    >
+    <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+    </label>
     <input type="submit" value="Submit" />
-  </form>
+</form>
 
 <style>
     form {
