@@ -5,8 +5,10 @@
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const myForm = event.target;
-        const formData = new FormData(myForm);
+        let myForm = event.target;
+        let formData = new FormData(myForm);
+
+        console.log(formData.getAll())
 
         fetch("/", {
             method: "POST",
