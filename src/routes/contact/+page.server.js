@@ -13,3 +13,4 @@
 //             .catch((error) => alert(error));
 //     }
 // }
+export const prerender = true
