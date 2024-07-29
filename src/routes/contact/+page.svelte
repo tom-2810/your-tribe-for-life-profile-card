@@ -26,6 +26,7 @@
     netlify-honeypot="bot-field"
     data-netlify="true"
     on:submit={handleSubmit}
+    action="/thanks"
 >
     <input type="hidden" name="form-name" value="contact" />
     <input
