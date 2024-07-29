@@ -1,6 +1,6 @@
 <script>
-    import { goto } from "$app/navigation";
     let name;
+    let formSucces = false;
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -13,7 +13,7 @@
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams(formData).toString(),
         })
-            .then(() => goto("/thanks"))
+            .then(() => (formSucces = true))
             .catch((error) => alert(error));
     };
 </script>
@@ -60,10 +60,29 @@ maken van een website voor... "
     <label>
         Don’t fill this out if you’re human: <input name="bot-field" />
     </label>
-    <input type="submit" value="Submit" />
+    <div class="status">
+
+        {#if formSucces}
+        <button disabled>Bericht verzonden</button>
+        <span>🎉</span>
+        {:else}
+        <button>Verstuur bericht</button>
+        {/if}
+    </div>
 </form>
 
 <style>
+    .status {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    button {
+        padding: .5rem;
+    }
+    span {
+        font-size: 4rem;
+    }
     form {
         display: flex;
         flex-direction: column;
