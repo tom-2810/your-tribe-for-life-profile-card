@@ -32,7 +32,7 @@
     <input
         type="hidden"
         name="subject"
-        value="[%{'{'}formName{'}'}] [%{'{'}name{'}'}] - %{'{'}submissionId{'}'}"
+        value="🎉 [%{'{'}formName{'}'}] {name} - %{'{'}submissionId{'}'}"
     />
     <label
         >Your Name: <input
