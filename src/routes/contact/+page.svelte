@@ -1,5 +1,21 @@
 <script>
+    import { goto } from "$app/navigation";
     let name;
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const myForm = event.target;
+        const formData = new FormData(myForm);
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString(),
+        })
+            .then(() => goto("/bericht-verzonden"))
+            .catch((error) => alert(error));
+    };
 </script>
 
 <h1>Contact</h1>
@@ -9,7 +25,7 @@
     method="POST"
     netlify-honeypot="bot-field"
     data-netlify="true"
-    action="/bericht-verzonden"
+    on:submit={handleSubmit}
 >
     <input type="hidden" name="form-name" value="contact" />
     <input
