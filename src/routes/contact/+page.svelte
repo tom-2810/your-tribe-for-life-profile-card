@@ -61,12 +61,11 @@ maken van een website voor... "
         Don’t fill this out if you’re human: <input name="bot-field" />
     </label>
     <div class="status">
-
         {#if formSucces}
-        <button disabled>Bericht verzonden</button>
-        <span>🎉</span>
+            <button disabled>Bericht verzonden</button>
+            <span>🎉</span>
         {:else}
-        <button>Verstuur bericht</button>
+            <button>Verstuur bericht</button>
         {/if}
     </div>
 </form>
@@ -78,7 +77,7 @@ maken van een website voor... "
         align-items: center;
     }
     button {
-        padding: .5rem;
+        padding: 0.5rem;
     }
     span {
         font-size: 4rem;
