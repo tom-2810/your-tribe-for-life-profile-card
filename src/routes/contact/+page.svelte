@@ -1,95 +1,37 @@
 <script>
-    import { goto } from '$app/navigation'
-    let name;
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-
-        const myForm = event.target;
-        const formData = new FormData(myForm);
-
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
-        })
-            .then(() => goto('/thanks'))
-            .catch((error) => alert(error));
-    };
+	import { enhance } from '$app/forms';
+	import { page } from '$app/stores';
 </script>
 
-<h1>Contact</h1>
+<section>
+	<form
+		action="?/contact"
+		method="POST"
+		name="contact"
+		enctype="multipart/form-data"
+		netlify
+		netlify-honeypot="bot-field"
+		use:enhance
+	>
+	<input type="hidden" name="form-name" value="contact" />
 
-<form
-    name="contact"
-    method="POST"
-    netlify-honeypot="bot-field"
-    data-netlify="true"
-    on:submit={handleSubmit}
->
-    <input type="hidden" name="form-name" value="contact" />
-    <input
-        type="hidden"
-        name="subject"
-        value="[%{'{'}formName{'}'}] {name} - %{'{'}submissionId{'}'}"
-    />
-    <label
-        >Your Name: <input
-            bind:value={name}
-            type="text"
-            name="name"
-            placeholder="Jan Janssen"
-        /></label
-    >
-    <label
-        >Your Email: <input
-            type="email"
-            name="email"
-            placeholder="jan.janssen@mail.nl"
-        /></label
-    >
-    <label
-        >Message: <textarea
-            name="message"
-            placeholder="Hey Tom! 
+	<input
+	       type="text"
+	       name="first-name"
+		placeholder="First name"
+		value={$page?.form?.firstName || null}
+	/>
 
-Kan je me helpen met het 
-maken van een website voor... "
-        /></label
-    >
-    <label>
-        Don’t fill this out if you’re human: <input name="bot-field" />
-    </label>
-    <input type="submit" value="Submit" />
+	<input
+		class="lato-regular"
+		type="text"
+		name="last-name"
+		placeholder="Last name"
+		aria-label="Enter last name."
+		value={$page?.form?.lastName || null}
+	/>
+
+	<input class="submit" type="submit" value="Apply Now!" />
 </form>
-
-<style>
-    form {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        max-width: 20rem;
-        position: relative;
-        top: 10rem;
-        margin-inline: auto;
-    }
-    label {
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-        font-size: 0.9rem;
-    }
-    label:last-of-type {
-        position: absolute;
-        left: -120vw;
-    }
-    input {
-        font-size: 1rem;
-        padding: 0.3rem;
-    }
-    textarea {
-        font-size: 1rem;
-        min-height: 8rem;
-        resize: vertical;
-    }
-</style>
+		
+</section>
