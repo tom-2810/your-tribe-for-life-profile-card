@@ -1,21 +1,19 @@
 <script>
-    import { goto } from '$app/navigation'
+    import { goto } from "$app/navigation";
     let name;
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        let myForm = event.target;
-        let formData = new FormData(myForm);
-
-        console.log(formData.getAll())
+        const myForm = event.target;
+        const formData = new FormData(myForm);
 
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams(formData).toString(),
         })
-            .then(() => goto('/thanks'))
+            .then(() => goto("/thanks"))
             .catch((error) => alert(error));
     };
 </script>
