@@ -2,20 +2,20 @@
     let name;
     let email;
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
 
-        const myForm = event.target;
-        const formData = new FormData(myForm);
+    //     const myForm = event.target;
+    //     const formData = new FormData(myForm);
 
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
-        })
-            .then(() => navigate("/thank-you/"))
-            .catch((error) => alert(error));
-    };
+    //     fetch("/", {
+    //         method: "POST",
+    //         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //         body: new URLSearchParams(formData).toString(),
+    //     })
+    //         .then(() => navigate("/thank-you/"))
+    //         .catch((error) => alert(error));
+    // };
 </script>
 
 <h1>Contact</h1>
@@ -26,7 +26,6 @@
     netlify
     netlify-honeypot="bot-field"
     data-netlify-recaptcha="true"
-    onSubmit={handleSubmit}
 >
     <input type="hidden" name="form-name" value="contact" />
     <label
