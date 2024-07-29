@@ -63,8 +63,10 @@ maken van een website voor... "
     </label>
     <div class="status">
         {#if formSucces}
-            <button disabled>Bericht verzonden</button>
-            <span>🎉</span>
+        <div class="card">
+            <h1>Yes! 🎉 Je bericht is verzonden</h1>
+            <p>Ik probeer altijd binnen twee werkdagen te reageren.</p>
+        </div>
         {:else}
             <button>Verstuur bericht</button>
         {/if}
@@ -72,6 +74,24 @@ maken van een website voor... "
 </form>
 
 <style>
+    .card {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: white;
+        padding: 3rem;
+        max-width: 26rem;
+        border-radius: 12px;
+        text-align: center;
+    }
+    h1 {
+        font-size: 2rem;
+        color: rgb(40, 40, 40);
+    }
+    p {
+        font-size: 1.2rem;
+        color: rgba(40, 40, 40);
+    }
     .status {
         display: flex;
         flex-direction: column;
@@ -80,14 +100,11 @@ maken van een website voor... "
     button {
         padding: 0.5rem;
     }
-    span {
-        font-size: 4rem;
-    }
     form {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        max-width: 20rem;
+        max-width: 27rem;
         position: relative;
         top: 10rem;
         margin-inline: auto;
