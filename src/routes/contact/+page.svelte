@@ -27,7 +27,8 @@
     data-netlify="true"
 >
     <input type="hidden" name="form-name" value="contact" />
-    <input type="hidden" name="subject" value="Contact {name} <{email}>" />
+    <input type="hidden" name="subject" 
+  value="Sales inquiry from mysitename.netlify.app" />
     <label
         >Your Name: <input
             bind:value={name}
