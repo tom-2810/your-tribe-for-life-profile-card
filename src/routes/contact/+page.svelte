@@ -41,7 +41,7 @@ maken van een website voor... "
             required
         /></label
     >
-    <div data-netlify-recaptcha="true" />
+    <div data-netlify-recaptcha="true"></div>
     <button type="submit">Verstuur bericht</button>
     <label>
         Don’t fill this out if you’re human: <input name="bot-field" />
