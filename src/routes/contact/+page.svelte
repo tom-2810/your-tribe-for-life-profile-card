@@ -16,6 +16,7 @@
     //         .then(() => navigate("/thank-you/"))
     //         .catch((error) => alert(error));
     // };
+    export const prerender = true
 </script>
 
 <h1>Contact</h1>
