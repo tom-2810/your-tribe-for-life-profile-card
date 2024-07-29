@@ -21,14 +21,14 @@
 <h1>Contact</h1>
 
 <form
-    name="contact"
+    name="Contact"
     method="POST"
     netlify-honeypot="bot-field"
     data-netlify="true"
     on:submit={handleSubmit}
     action="/thanks"
 >
-    <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="form-name" value="Contact" />
     <input
         type="hidden"
         name="subject"
