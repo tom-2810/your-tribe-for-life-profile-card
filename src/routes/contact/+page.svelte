@@ -8,7 +8,7 @@
 <form
     name="contact"
     method="POST"
-    data-netlify="true"
+    netlify
     netlify-honeypot="bot-field"
     data-netlify-recaptcha="true"
 >
