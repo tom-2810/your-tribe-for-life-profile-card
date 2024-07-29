@@ -9,7 +9,6 @@
     method="POST"
     netlify-honeypot="bot-field"
     data-netlify="true"
-    data-netlify-recaptcha="true"
     action="/bericht-verzonden"
 >
     <input type="hidden" name="form-name" value="contact" />
@@ -45,7 +44,6 @@ maken van een website voor... "
     <label>
         Don’t fill this out if you’re human: <input name="bot-field" />
     </label>
-    <div data-netlify-recaptcha="true"></div>
     <input type="submit" value="Submit" />
 </form>
 
