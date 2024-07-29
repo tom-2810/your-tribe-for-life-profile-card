@@ -1,21 +1,5 @@
 <script>
     let name;
-    let email;
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-
-    //     const myForm = event.target;
-    //     const formData = new FormData(myForm);
-
-    //     fetch("/", {
-    //         method: "POST",
-    //         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //         body: new URLSearchParams(formData).toString(),
-    //     })
-    //         .then(() => navigate("/thank-you/"))
-    //         .catch((error) => alert(error));
-    // };
 </script>
 
 <h1>Contact</h1>
@@ -25,9 +9,15 @@
     method="POST"
     netlify-honeypot="bot-field"
     data-netlify="true"
+    data-netlify-recaptcha="true"
+    action="/bericht-verzonden"
 >
     <input type="hidden" name="form-name" value="contact" />
-    <input type="hidden" name="subject" value="New %{'{'}formName{'}'} %{'{'}siteName{'}'} | {name} %{'{'}submissionId{'}'}" />
+    <input
+        type="hidden"
+        name="subject"
+        value="[%{'{'}formName{'}'}] {name} - %{'{'}submissionId{'}'}"
+    />
     <label
         >Your Name: <input
             bind:value={name}
@@ -38,7 +28,6 @@
     >
     <label
         >Your Email: <input
-            bind:value={email}
             type="email"
             name="email"
             placeholder="jan.janssen@mail.nl"
@@ -56,6 +45,7 @@ maken van een website voor... "
     <label>
         Don’t fill this out if you’re human: <input name="bot-field" />
     </label>
+    <div data-netlify-recaptcha="true"></div>
     <input type="submit" value="Submit" />
 </form>
 
