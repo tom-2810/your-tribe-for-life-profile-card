@@ -27,7 +27,7 @@
     data-netlify="true"
 >
     <input type="hidden" name="form-name" value="contact" />
-    <input type="hidden" name="subject" value="Contact {name} %{'{'}submissionId{'}'}" />
+    <input type="hidden" name="subject" value="New %{'{'}formName{'}'} %{'{'}siteName{'}'} | {name} %{'{'}submissionId{'}'}" />
     <label
         >Your Name: <input
             bind:value={name}
