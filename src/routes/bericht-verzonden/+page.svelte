@@ -1,1 +1,0 @@
-<h1>Bericht is verzonden 📨</h1>
