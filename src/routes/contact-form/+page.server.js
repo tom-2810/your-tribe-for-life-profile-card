@@ -2,23 +2,16 @@ export const actions = {
     contact: async ({ request, params, url }) => {
         let success;
 
-        const rawFormData = await request.formData();
-
-        let urlSearchParams = new URLSearchParams(rawFormData)
-        let formData = new FormData()
-
-        formData.append("first-name", urlSearchParams.get("first-name"))
-        formData.append("last-name", urlSearchParams.get("last-name"))
-        formData.append("email", urlSearchParams.get("email"))
-
-        // console.log(new URLSearchParams(formData).toString())
+        const formData = await request.formData();
+        // console.log(formData)
+        console.log("contact form")
 
         try {
             const response = await fetch(`${url.origin}/contact`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
                 body: new URLSearchParams(formData).toString()
             });
             console.log("posted")
