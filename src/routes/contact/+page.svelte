@@ -8,16 +8,7 @@
         const myForm = event.target;
         const formData = new FormData(myForm);
 
-        let body = new URLSearchParams(formData)
-
-        console.log(body)
-
-        console.log(body.get('form-name'))
-
-
-        // body.set('form-name', 'ietsanders')
-
-        console.log(body.get('form-name'))
+        let body = new URLSearchParams(formData);
 
         fetch("/contact", {
             method: "POST",
@@ -74,10 +65,10 @@ maken van een website voor... "
     </label>
     <div class="status">
         {#if formSucces}
-        <div class="card">
-            <h1>Yes! 🎉 Je bericht is verzonden</h1>
-            <p>Ik probeer altijd binnen twee werkdagen te reageren.</p>
-        </div>
+            <div class="card">
+                <h1>Yes! 🎉 Je bericht is verzonden</h1>
+                <p>Ik probeer altijd binnen twee werkdagen te reageren.</p>
+            </div>
         {:else}
             <button>Verstuur bericht</button>
         {/if}
