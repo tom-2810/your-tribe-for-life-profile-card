@@ -7,15 +7,15 @@ export const actions = {
 
         // let formHTML = new JSDOM('<form></form>');
 
-        formData.append("form-name", "Contact");
+        formData.append("name", "Pomegranate");
 
         console.log(formData)
 
-        new Response({
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
-        });
+        let htmlStr = `<div><form name="Contact" data-netlify="true" method="POST"><input type="hidden" name="form-name" value="Contact" /><input type="text" name="name" /><button>Send</button></form></div>`;
+
+        let dom = new JSDOM(htmlStr);
+
+        dom.window.document.querySelector("form").submit()
 
         return {
             success: true
