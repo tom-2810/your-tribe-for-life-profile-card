@@ -1,26 +1,40 @@
 <script>
     let name;
     let formSucces = false;
+    import { enhance } from "$app/forms";
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    export let form;
 
-        const myForm = event.target;
-        const formData = new FormData(myForm);
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
 
-        fetch("/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
-        })
-            .then(() => (formSucces = true))
-            .catch((error) => alert(error));
-    };
+    //     const myForm = event.target;
+    //     const formData = new FormData(myForm);
+
+    //     fetch("/contact", {
+    //         method: "POST",
+    //         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //         body: new URLSearchParams(formData).toString(),
+    //     })
+    //         .then(() => (formSucces = true))
+    //         .catch((error) => alert(error));
+    // };
 </script>
 
 <h1>Contact</h1>
 
-<form
+<form use:enhance method="POST" action="?/contact">
+    <label>Naam: <input name="naam" type="text" /></label>
+    <button>verzend</button>
+</form>
+
+{#if form?.success}
+    <p>success</p>
+{:else if !form?.success}
+    <p>fail</p>
+{/if}
+
+<!-- <form
     name="Contact"
     method="POST"
     netlify-honeypot="bot-field"
@@ -71,7 +85,9 @@ maken van een website voor... "
             <button>Verstuur bericht</button>
         {/if}
     </div>
-</form>
+</form> -->
+
+
 
 <style>
     .card {
@@ -115,10 +131,10 @@ maken van een website voor... "
         gap: 0.3rem;
         font-size: 0.9rem;
     }
-    label:last-of-type {
+    /* label:last-of-type {
         position: absolute;
         left: -120vw;
-    }
+    } */
     input {
         font-size: 1rem;
         padding: 0.3rem;
