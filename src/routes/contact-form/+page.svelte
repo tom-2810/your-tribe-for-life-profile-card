@@ -2,44 +2,38 @@
     import { enhance } from "$app/forms";
 
     export let form;
-
 </script>
 
 <h1>Contact form</h1>
 
 <form
-		action="?/contact"
-		method="POST"
-		name="contact"
-		enctype="multipart/form-data"
-		netlify
-		netlify-honeypot="bot-field"
-		use:enhance
-	>
+    action="?/contact"
+    method="POST"
+    name="contact"
+    enctype="multipart/form-data"
+    netlify
+    netlify-honeypot="bot-field"
+    use:enhance
+>
     <input type="hidden" name="form-name" value="contact" />
-    <label
-        >Your Name: <input
-            type="text"
-            name="name"
-            placeholder="Jan Janssen"
-        /></label
-    >
-    <label
-        >Your Email: <input
-            type="email"
-            name="email"
-            placeholder="jan.janssen@mail.nl"
-        /></label
-    >
-    <label
-        >Message: <textarea
-            name="message"
-            placeholder="Hey Tom! 
 
-Kan je me helpen met het 
-maken van een website voor... "
-        /></label
-    >
+    <label>
+        Voornaam:
+        <input type="text" name="first-name" />
+    </label>
+    <label>
+        Achternaam:
+        <input type="text" name="last-name" />
+    </label>
+    <label>
+        Email:
+        <input type="email" name="email" />
+    </label>
+    
+    <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+    </label>
+
     <button>Verstuur bericht</button>
 
     {#if form?.success}

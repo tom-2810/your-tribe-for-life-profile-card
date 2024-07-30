@@ -15,5 +15,4 @@
         <input type="text" name="last-name" />
         <input type="email" name="email" />
     </div>
-    <button>verstuur</button>
 </form>
