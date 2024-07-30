@@ -17,7 +17,7 @@ export const actions = {
             console.log("posted")
             const data = await response.text();
 
-            console.log(data)
+            // console.log(data)
 
             if (response.status !== 200)
                 return { success: false };
