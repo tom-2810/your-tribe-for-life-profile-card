@@ -10,6 +10,6 @@ export const load = async ({ request }) => {
     console.log("equal keys: " + request.key == CONTACT_KEY)
 
     if (request.key != CONTACT_KEY) {
-        redirect(302, '/contact-form');
+        throw redirect(302, '/contact-form');
     }
 }
