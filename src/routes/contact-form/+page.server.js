@@ -9,9 +9,7 @@ export const actions = {
         try {
             const response = await fetch(`https://tom-personal-card.netlify.app/contact`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
+                headers: new Headers(),
                 body: new URLSearchParams(formData).toString()
             });
             console.log("posted")
