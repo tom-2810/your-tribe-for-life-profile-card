@@ -3,21 +3,30 @@ export const actions = {
         let success;
 
         const formData = await request.formData();
-        // console.log(url.origin)
+        // console.log(formData)
+        console.log("contact form")
 
-        await fetch(url.origin + '/contact', {
-            method: "POST",
-            body: "name=naampie&email=floepert99@gmail.com&message=berichtjewooowww",
-            headers:
-            {
-                "Content-Type": "application/x-www-form-urlencoded"
-            }
-        })
-            .then(() => (success = true))
-            .catch((error) => (success = false));
+        try {
+            const response = await fetch(`${url.origin}/contact`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(formData).toString()
+            });
+            console.log("posted")
+            const data = await response.text();
 
-        return {
-            success: success
+            console.log(data)
+
+            if (response.status !== 200)
+                return { success: false };
+
+            console.log("done action")
+            return { success: true };
+        } catch (err) {
+            console.log('error: ', err);
+            return { success: false };
         }
     }
 }
