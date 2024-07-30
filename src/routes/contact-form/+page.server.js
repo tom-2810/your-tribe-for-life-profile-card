@@ -7,7 +7,7 @@ export const actions = {
         console.log("contact form")
 
         try {
-            const response = await fetch(`${url.origin}/contact`, {
+            const response = await fetch(`https://tom-personal-card.netlify.app/contact`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
