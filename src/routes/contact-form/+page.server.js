@@ -1,3 +1,5 @@
+import { CONTACT_KEY } from '$env/static/private';
+
 export const actions = {
     contact: async ({ request, params, url }) => {
         let success;
@@ -23,7 +25,8 @@ export const actions = {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: new URLSearchParams(formData).toString()
+                body: new URLSearchParams(formData).toString(),
+                key: CONTACT_KEY
             });
             console.log("posted")
             const data = await response.text();
