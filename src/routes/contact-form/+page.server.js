@@ -7,7 +7,7 @@ export const actions = {
         console.log("contact form")
 
         try {
-            const response = await fetch(`${origin}/contact`, {
+            const response = await fetch(`${url.origin}/contact`, {
                 method: 'POST',
                 headers: new Headers(),
                 body: new URLSearchParams(formData).toString()
@@ -15,7 +15,7 @@ export const actions = {
             console.log("posted")
             const data = await response.text();
 
-            // console.log(data)
+            console.log(data)
 
             if (response.status !== 200)
                 return { success: false };
