@@ -1,6 +1,5 @@
 <script>
-    const handleSubmit = (event) => {
-        event.preventDefault();
+
 
         const myForm = event.target;
         const formData = new FormData(myForm);
@@ -12,7 +11,7 @@
         })
             .then(() => console.log("Form successfully submitted"))
             .catch((error) => alert(error));
-    };
+
 </script>
 
 <form
@@ -20,7 +19,7 @@
     name="contact-footer"
     data-netlify="true"
     netlify-honeypot="bot-field"
-    on:submit={handleSubmit}
+
 >
     <input type="hidden" name="form-name" value="contact-footer" />
     <div class="form__inputs">
@@ -28,5 +27,5 @@
         <input type="text" name="last-name" />
         <input type="email" name="email" />
     </div>
-    <button>stuur</button>
+
 </form>
