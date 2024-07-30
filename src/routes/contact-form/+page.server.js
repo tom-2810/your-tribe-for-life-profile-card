@@ -4,9 +4,13 @@ export const actions = {
 
         const rawFormData = await request.formData();
 
+        console.log(rawFormData)
+
         let urlSearchParams = new URLSearchParams(rawFormData)
         let formData = new FormData()
 
+        formData.append("form-name", urlSearchParams.get("form-name"))
+        formData.append("bot-field", urlSearchParams.get("contact"))
         formData.append("first-name", urlSearchParams.get("first-name"))
         formData.append("last-name", urlSearchParams.get("last-name"))
         formData.append("email", urlSearchParams.get("email"))
