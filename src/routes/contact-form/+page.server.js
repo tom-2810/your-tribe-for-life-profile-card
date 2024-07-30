@@ -9,7 +9,9 @@ export const actions = {
         try {
             const response = await fetch(`${url.origin}/contact`, {
                 method: 'POST',
-                headers: new Headers(),
+                headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
                 body: new URLSearchParams(formData).toString()
             });
             console.log("posted")
