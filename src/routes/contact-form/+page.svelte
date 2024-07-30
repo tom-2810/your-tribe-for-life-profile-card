@@ -16,7 +16,6 @@
     use:enhance
 >
     <input type="hidden" name="form-name" value="contact" />
-    <input type="hidden" name="subject" />
 
     <label>
         Voornaam:
