@@ -9,7 +9,7 @@ const config = {
 		adapter: adapter(),
 		prerender: {
 			crawl: true,
-			entries: ['/contact']
+			entries: ['/contact', '/thanks']
 		},
 		csrf: {
 			checkOrigin: false,
