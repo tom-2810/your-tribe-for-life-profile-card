@@ -1,7 +1,3 @@
-export async function handler(event) {
-  const subject = event.queryStringParameters.name || 'World'
-  return {
-      statusCode: 200,
-      body: `Hello ${subject}!`,
-  }
-}
+export default async (req, context) => {
+  return new Response("Hello, world!");
+};
