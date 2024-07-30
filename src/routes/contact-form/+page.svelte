@@ -2,18 +2,11 @@
     import { enhance } from "$app/forms";
 
     export let form;
-
 </script>
 
 <h1>Contact form</h1>
 
-<form
-		action="?/contact"
-		method="POST"
-		name="contact"
-		enctype="multipart/form-data"
-		use:enhance
-	>
+<form action="?/contact" method="POST" use:enhance>
     <label
         >Your Name: <input
             type="text"
