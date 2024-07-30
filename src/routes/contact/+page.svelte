@@ -8,10 +8,21 @@
         const myForm = event.target;
         const formData = new FormData(myForm);
 
+        let body = new URLSearchParams(formData)
+
+        console.log(body)
+
+        console.log(body.get('form-name'))
+
+
+        body.set('form-name', 'ietsanders')
+
+        console.log(body.get('form-name'))
+
         fetch("/contact", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
+            body: body,
         })
             .then(() => (formSucces = true))
             .catch((error) => alert(error));
