@@ -9,8 +9,4 @@ export async function handler(event, context) {
   
   
     // The function should return a response
-    return {
-      statusCode: 200,
-      body: "Form submission received",
-    };
   }
