@@ -13,7 +13,7 @@ export const actions = {
         formData.append("first-name", urlSearchParams.get("first-name"))
         formData.append("last-name", urlSearchParams.get("last-name"))
         formData.append("email", urlSearchParams.get("email"))
-        formData.append("subject", `[%{formName}] ${urlSearchParams.get("first-name")} - %{submissionId}`)
+        // formData.append("subject", `[%{formName}] ${urlSearchParams.get("first-name")} - %{submissionId}`)
 
         // console.log(new URLSearchParams(formData).toString())
 
