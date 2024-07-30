@@ -2,7 +2,7 @@
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const myForm = event.target;
+        const myForm = document.querySelector('form');
         const formData = new FormData(myForm);
 
         let body = new URLSearchParams(formData);
