@@ -2,11 +2,21 @@
     import { enhance } from "$app/forms";
 
     export let form;
+
 </script>
 
 <h1>Contact form</h1>
 
-<form action="?/contact" method="POST" use:enhance>
+<form
+		action="?/contact"
+		method="POST"
+		name="contact"
+		enctype="multipart/form-data"
+		netlify
+		netlify-honeypot="bot-field"
+		use:enhance
+	>
+    <input type="hidden" name="form-name" value="contact" />
     <label
         >Your Name: <input
             type="text"
