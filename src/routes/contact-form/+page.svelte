@@ -1,47 +1,14 @@
 <script>
-    let name;
-    let formSucces = false;
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    import { enhance } from "$app/forms";
 
-        const myForm = event.target;
-        const formData = new FormData(myForm);
-
-        let body = new URLSearchParams(formData);
-
-        console.log("submitting...");
-
-        fetch("/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: body,
-        })
-            .then(() => (formSucces = true))
-            .catch((error) => alert(error));
-    };
-
-    console.log("test");
+    export let form;
 </script>
 
-<h1>Contact</h1>
+<h1>Contact form</h1>
 
-<form
-    name="Contact"
-    method="POST"
-    netlify-honeypot="bot-field"
-    data-netlify="true"
-    on:submit={handleSubmit}
-    action="/thanks"
->
-    <input type="hidden" name="form-name" value="Contact" />
-    <input
-        type="hidden"
-        name="subject"
-        value="[%{'{'}formName{'}'}] {name} - %{'{'}submissionId{'}'}"
-    />
+<form method="POST" action="/contact">
     <label
         >Your Name: <input
-            bind:value={name}
             type="text"
             name="name"
             placeholder="Jan Janssen"
@@ -63,19 +30,11 @@ Kan je me helpen met het
 maken van een website voor... "
         /></label
     >
-    <label>
-        Don’t fill this out if you’re human: <input name="bot-field" />
-    </label>
-    <div class="status">
-        {#if formSucces}
-            <div class="card">
-                <h1>Yes! 🎉 Je bericht is verzonden</h1>
-                <p>Ik probeer altijd binnen twee werkdagen te reageren.</p>
-            </div>
-        {:else}
-            <button>Verstuur bericht</button>
-        {/if}
-    </div>
+    <button>Verstuur bericht</button>
+
+    {#if form?.success}
+        success
+    {/if}
 </form>
 
 <style>
